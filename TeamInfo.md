@@ -4,8 +4,8 @@
 
 |   Info      |        Description     |
 | ----------- | ---------------------- |
-| TeamID      |        Team-000        |
-| TeamName    |         sample         |
+| TeamID      |        Team-004        |
+| TeamName    |        411Survive      |
 | Captain     |       Abdu Alawini     |
 | Captain     |  alawini@illinois.edu  |
 | Member1     |        Kevin Pei       |
