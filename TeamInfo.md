@@ -2,18 +2,18 @@
 
 ## Basic Information
 
-|   Info      |        Description     |
-| ----------- | ---------------------- |
-| TeamID      |        Team-004        |
-| TeamName    |        411Survive      |
-| Captain     |       Abdu Alawini     |
-| Captain     |  alawini@illinois.edu  |
-| Member1     |        Kevin Pei       |
-| Member1     |   kevin2@illinois.edu  |
-| Member2     |                        |
-| Member2     |                        |
-| Member3     |                        |
-| Member3     |                        |
+| Info     | Description          |
+| -------- | -------------------- |
+| TeamID   | Team-004             |
+| TeamName | 411Survive           |
+| Captain  | ZhirongChen          |
+| Captain  | alawini@illinois.edu |
+| Member1  | ZichengMa            |
+| Member1  | kevin2@illinois.edu  |
+| Member2  |                      |
+| Member2  |                      |
+| Member3  |                      |
+| Member3  |                      |
 
 ## Project Information
 
