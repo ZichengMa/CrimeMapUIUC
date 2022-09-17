@@ -1,27 +1,27 @@
-# A-team000-sample
+# A-team004-411Survive
 
 ## Basic Information
 
-| Info     | Description          |
-| -------- | -------------------- |
-| TeamID   | Team-004             |
-| TeamName | 411Survive           |
-| Captain  | ZhirongChen          |
-| Captain  | alawini@illinois.edu |
-| Member1  | ZichengMa            |
-| Member1  | kevin2@illinois.edu  |
-| Member2  |                      |
-| Member2  |                      |
-| Member3  |                      |
-| Member3  |                      |
+|   Info      |        Description     |
+| ----------- | ---------------------- |
+| TeamID      |        Team-004        |
+| TeamName    |        411Survive      |
+| Captain     |       Zhirong Chen      |
+| Captain     |  zhirong4@illinois.edu    |
+| Member1     |       Gaohan Ye       |
+| Member1     |   gaohany2@illinois.edu  |
+| Member2     |        Erkai Yu                |
+| Member2     |         erkaiyu2@illinois.edu               |
+| Member3     |      Zicheng Ma               |
+| Member3     |        zma17@illinois.edu|
 
 ## Project Information
 
 |   Info      |        Description     |
 | ----------- | ---------------------- |
-|  Title      |       ProjectTitle     |
-| System URL  |      link_to_system    |
-| Video Link  |      link_to_video     |
+|  Title      |       TBD              |
+| System URL  |       TBD              |
+| Video Link  |       TBD              |
 
 ## Project Summary
 
