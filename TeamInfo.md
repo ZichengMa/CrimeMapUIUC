@@ -19,10 +19,10 @@
 
 |   Info      |        Description     |
 | ----------- | ---------------------- |
-|  Title      |                  |
+|  Title      |       Survive and Thrive in UIUC           |
 | System URL  |               |
 | Video Link  |              |
 
 ## Project Summary
+We want to create a web application that can clearly display the crime. Users can use the website to report incidents they have seen as well as locate areas with high crime rates. With the use of this website, we want to reduce crime and improve student safety at UIUC.
 
-This is a summary of the project!
