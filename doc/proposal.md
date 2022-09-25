@@ -29,11 +29,11 @@ Based on the `data and artificial intelligence`, the web can also predict where 
 ​    UI part:    
 
 - Elijah -- fundamental implement, mainly about web and button
-- Erika -- check how to add a map and sign something on it
+- Erkai -- check how to add a map and sign something on it
 - Zicheng – polish UI and split map and table part
 - Zhirong -- responsible for table part’s UI
 
 ​    Database part:
 
--  Elijah and Erika: Check online database and some API to fetch data
+-  Elijah and Erkai: Check online database and some API to fetch data
 -  Zhirong and Zicheng: Backend query implement and connect them with user level input
