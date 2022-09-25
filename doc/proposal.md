@@ -22,7 +22,7 @@ Based on the `data and artificial intelligence`, the web can also predict where 
 
 ​    Beside map UI, we also provide **a simpler UI which for user who wants only to see information of the crimes**. They can use table view and export table in excel or csv form into their own computer.
 
-![MAP_UI1](D:\Desktop\学习资料\CS411\fa22-cs411-A-team004-411Survive\doc\MAP_UI1.jpg)<img src="D:\Desktop\学习资料\CS411\fa22-cs411-A-team004-411Survive\doc\MAP_UI2.png" alt="MAP_UI2" style="zoom:150%;" />
+![MAP_UI1](MAP_UI1.jpg)<img src="MAP_UI2.png" alt="MAP_UI2" style="zoom:150%;" />
 
 ## Project work distribution:
 
