@@ -18,7 +18,7 @@ Based on the `data and artificial intelligence`, the web can also predict where 
 
 ## Description of the functionality
 ### Data stored in the database
-1. Daily Crime Log https://police.illinois.edu/info/daily-crime-log/ provides data of crimes reported in the university area during the last 60 days. Illini Alerts sent by police in campus is also a source of dataa for our website. Data of crimes can be stored with following attributes:
+1. Daily Crime Log https://police.illinois.edu/info/daily-crime-log/ provides data of crimes reported in the university area during the last 60 days. Illini Alerts sent by police in campus is also a source of data for our website. Data of crimes can be stored with following attributes:
 * Crime code
 * Reported time
 * Occurred time
