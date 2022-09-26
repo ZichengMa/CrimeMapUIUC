@@ -65,7 +65,7 @@ Our data will be the records of crime within UIUC campus and surrounding areas s
 
 **TABLE UI:**
 
-<img src="TableUI.png" alt="TableUI" style="zoom: 40%;" />
+<img src="TableUI.png" alt="TableUI" style="zoom: 30%;" />
 
 ## Project work distribution:
 
