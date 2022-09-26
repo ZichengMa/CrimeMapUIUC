@@ -11,7 +11,7 @@ Since the `crime rate` of Champaign and Urbana is almost the highest in Illinois
 Based on the `data and artificial intelligence`, the web can also predict where crime is most likely to occur, so that it can tell the police to raise the level of vigilance in that area, and also helps the public to avoid that area as much as possible. We hope both UIUC students and policemen can not only `survive` but also `thrive` in Champaign and Urbana.
 
 ## Realness
-Our data will be the records of crime within UIUC campus and surrounding areas such as Champaign, Urbana, and Savoy. The best way for us to get our data is from police stations around those areas. That could only happen if they give us access to their database. If not, we might need to do some crawling from local newspapers. We hope to format our data to a table with attributes such as CrimeId, Date, Address, TypeOfCrime, and so on. 
+Our data will be the records of crime within UIUC campus and surrounding areas such as Champaign, Urbana, and Savoy. The best way for us to get our data is from police stations around those areas. That could only happen if they give us access to their database. If not, we might need to do some crawling from local newspapers. We hope to format our data to a table with attributes such as `CrimeId`, `Date, Address`, `TypeOfCrime`, and so on. 
 
 ## Usefulnesss
 
