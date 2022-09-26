@@ -44,6 +44,7 @@ Our data will be the records of crime within UIUC campus and surrounding areas s
 * Users can have a view of the safety level directly from color indication. (complex feature, UI related) 
 * A time-based version of the map, in which safety level will be calculated base on crimes in different time slots of a day. (simple feature, view of database)
 * Users are able to select the types of crimes they want to be displayed on the map. (simple feature, view of database)
+* Users can find a safe and fast balanced path from the source to the destination. 
 2. A report system
 * Users can upload crimes they witnessed around the campus. (simple feature, insertion in database)
 * If there're multiple reports of a single crime, the system shall be able to identify and ask the user if they're the same. (complex feature, similarity detection)
@@ -58,7 +59,7 @@ Our data will be the records of crime within UIUC campus and surrounding areas s
 
 ​    Beside map UI, we also provide **a simpler UI which for user who wants only to see information of the crimes**. They can use table view and export table in excel or csv form into their own computer.
 
-![MAP_UI1](MAP_UI1.jpg)<img src="MAP_UI2.png" alt="MAP_UI2" style="zoom:200%;" />
+![MAP_UI1](MAP_UI1.jpg) 
 
 ## Project work distribution:
 
