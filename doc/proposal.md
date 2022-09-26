@@ -50,7 +50,8 @@ Our data will be the records of crime within UIUC campus and surrounding areas s
 ### Good creative component
 1. Display of emergency devices
 * Users can view where can they find emergency devices on the map.
-
+2. Alert of area
+* According to the disposition of recent crimes happened in one area(whether the issues have been settled, whether there're multiple cases related to one criminal), our website will identify areas worth extra attention and list them out.
 ## A low fidelity UI mockup
 
 ​    Our UI will include a map and **each crime will be a mark on the map**. The mark’s color will depend on the information of crime and be set by the system. Besides, every street will have **a color to indicate how safe it is**. User can select to filter some of the crime and they can also close the ‘safe level’ to see the map clearer.
