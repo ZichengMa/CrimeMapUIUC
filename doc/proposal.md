@@ -16,6 +16,35 @@ Based on the `data and artificial intelligence`, the web can also predict where 
 
 ​    We find a similar website https://police.illinois.edu/info/map which has very similar function as ours. Our project will do similar UI display on map and show user all information of crime. But we will add some new features like **providing user a way to log crime themselves or log some possible crimes** though they may not happen at last. Besides, we will add a feature that we can **see a criterion called ‘safe level’ for every street**. The safer it is, the greener it will be on the map. In our system, user can also **select the information they want to see by themselves**. We will provide UI and let them select information easily through clicking their mouse.
 
+## Description of the functionality
+### Data stored in the database
+1. Daily Crime Log https://police.illinois.edu/info/daily-crime-log/ provides data of crimes reported in the university area during the last 60 days. Illini Alerts sent by police in campus is also a source of dataa for our website. Data of crimes can be stored with following attributes:
+* Crime code
+* Reported time
+* Occurred time
+* General location
+* Crime description
+* Disposition
+2. Individual reporters are stored in a table, with attributes as follows:
+* Name(Optional)
+* User Id
+* Reported crime codes
+3. The safety degree of each street formed by data in Crime table, with attributes as follows:
+* Street name
+* Street location
+* Safety level
+* Number of crimes
+* Trend of crime number
+* Dangerous time slots
+### Basic functions of our website
+1. A crime map visualizing crime data
+* Users can have a view of the safety level directly from color indication. 
+* A time-based version of the map, in which safety level will be calculated base on crimes in different time slots of a day.
+* Users are able to select the types of crimes they want to be displayed on the map.
+2. A report system
+* Users can upload crimes they witnessed around the campus.
+* If there're similar reports of a single crime, the system shall be able to identify and ask the user if they're the same. 
+### Good creative component
 ## A low fidelity UI mockup
 
 ​    Our UI will include a map and **each crime will be a mark on the map**. The mark’s color will depend on the information of crime and be set by the system. Besides, every street will have **a color to indicate how safe it is**. User can select to filter some of the crime and they can also close the ‘safe level’ to see the map clearer.
