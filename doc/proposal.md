@@ -38,13 +38,16 @@ Based on the `data and artificial intelligence`, the web can also predict where 
 * Dangerous time slots
 ### Basic functions of our website
 1. A crime map visualizing crime data
-* Users can have a view of the safety level directly from color indication. 
-* A time-based version of the map, in which safety level will be calculated base on crimes in different time slots of a day.
-* Users are able to select the types of crimes they want to be displayed on the map.
+* Users can have a view of the safety level directly from color indication. (complex feature, UI related) 
+* A time-based version of the map, in which safety level will be calculated base on crimes in different time slots of a day. (simple feature, view of database)
+* Users are able to select the types of crimes they want to be displayed on the map. (simple feature, view of database)
 2. A report system
-* Users can upload crimes they witnessed around the campus.
-* If there're similar reports of a single crime, the system shall be able to identify and ask the user if they're the same. 
+* Users can upload crimes they witnessed around the campus. (simple feature, insertion in database)
+* If there're multiple reports of a single crime, the system shall be able to identify and ask the user if they're the same. (complex feature, similarity detection)
 ### Good creative component
+1. Display of emergency devices
+* Users can view where can they find emergency devices on the map.
+
 ## A low fidelity UI mockup
 
 ​    Our UI will include a map and **each crime will be a mark on the map**. The mark’s color will depend on the information of crime and be set by the system. Besides, every street will have **a color to indicate how safe it is**. User can select to filter some of the crime and they can also close the ‘safe level’ to see the map clearer.
