@@ -59,7 +59,13 @@ Our data will be the records of crime within UIUC campus and surrounding areas s
 
 ​    Beside map UI, we also provide **a simpler UI which for user who wants only to see information of the crimes**. They can use table view and export table in excel or csv form into their own computer.
 
+**MAP UI：**
+
 ![MAP_UI1](MAP_UI1.jpg) 
+
+**TABLE UI:**
+
+<img src="TableUI.png" alt="TableUI" style="zoom: 40%;" />
 
 ## Project work distribution:
 
