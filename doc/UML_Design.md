@@ -1,13 +1,14 @@
 
-## Entity Notation
-1. User: Contain user information including UserID, Name, etc
-2. Crime: Contain crime information for each criminal case, such as CrimeID Crime type, etc
-3. Street: Contain Street information
-4. StreetBoard: Street board is a board that every user can write comment on it. They can write anything concerning about the crime information of the street on the board and everyone can view the comment on the board
-5. SafetyLevel: it contains the level (a, b, c) and minimal danger number and maximum danger number for that street
-6. WeeklyReport: contains weekly crime information such as most dangerous street, least dangerous street, etc.
+## Relationship Description
+1. User: Contain user information including UserID, Name, sex, password. Cardinality: X
+2. Crime: Contain crime information for each criminal case, including CrimeID, CrimeTime, Address, StreetID, Description,
+ByUser Crime type. Cardinality: X
+3. Street: Contain Street information, such as StreetID, Name, ZipCode, NumCrimes, Frequency, Trend. Cardinality: X
+4. StreetBoard: Street board is a board that every user can write comment on it. They can write anything concerning about the crime information of the street on the board and everyone can view the comment on the board. It contains BoardId, StreetID, Content, Users. Cardinality: X
+5. SafetyLevel: it contains the level (a, b, c) and minimal danger number and maximum danger number for that street. Cardinality: X
+6. WeeklyReport: contains weekly crime information such as most dangerous street, least dangerous street, etc. Cardinality: X
 
-## Description of Assumption
+## Assumption
 1. StreetID in Crime table must be in StreetID in street
 2. User can report many Crime, a crime can only be reported by one user
 3. A crime can only happen in one Street, a Street can contain many crimes
