@@ -14,4 +14,5 @@ Description of Assumption
     5. A Street Board belongs to only one Street, a Street can only have one streetBoard
     6. StreetID in street board must be in the StreetID in the Street
     7. A Street can have only one safety level, many street can share the same safety level
+    8. A Weekly report contain many crimes but a crime can only belong to one weekly report.
 
