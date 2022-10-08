@@ -29,7 +29,7 @@
 
 **Entity Set Table:**
 
-User(UserID: INT [PK], Name: VARCHAR(255), Sex: VARCHAR(5), Password: VARCHAR(255))
+```User(UserID: INT [PK], Name: VARCHAR(255), Sex: VARCHAR(5), Password: VARCHAR(255))
 
 WeeklyReport(StartDate: Date [PK], NumCrime: INT, MostDangerStreet: VARCHAR(50) [Attribute Level Constraint to Street.Name] , MostSafeStreet: VARCHAR(50) [Attribute Level Constraint to Street.Name])
 
@@ -40,7 +40,7 @@ SafetyLevel(Level: INT [PK], min_danger: REAL, max_danger: REAL )
 StreetBoard(BoardID: INT [PK], Content: VARCHAR(500), StreetID: INT [FK to Street.StreetID])
 
 Street(StreetID: INT [PK], Name: VARCHAR(30), ZipCode: INT, NumCrimes: INT, Frequency: REAL, Trend: REAL)
-
+```
 
 
 **Relation Table:**
