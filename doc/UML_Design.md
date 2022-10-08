@@ -7,7 +7,7 @@
 
 3. **Street**: Contain Street information, such as StreetID, Name, ZipCode, NumCrimes, Frequency, Trend. The StreetID is assigned by our system and ZipCode+Name are used to identify location on GoogleMap. Besides, Frequency is related to one month and Trend is related to one week. Trend is not a calculated frequency, instead, we will design a way to make it show The rate of change in crime.  
 
-4. **StreetBoard**: Street board is a board that every user can write comment on it. They can write anything concerning about the crime information of the street on the board and everyone can view the comment on the board. It contains BoardId, StreetID, Content, Users.  
+4. **StreetBoard**: Street board is a board that every user can write comment on it. They can write anything concerning about the crime information of the street on the board and everyone can view the comment on the board. It contains BoardId, StreetID, Content.  
 
 5. **SafetyLevel**: it contains the level (chosen from 1, 2, 3, 4, 5) and minimal danger number and maximum danger number for that street. This level depends on a criterion called danger number which will be calculated from a street's #crimes, frequency, trend. 
 
@@ -33,15 +33,15 @@
 **Entity Set Table:**
 
     User(UserID: INT [PK], Name: VARCHAR(255), Sex: VARCHAR(5), Password: VARCHAR(255))
-
+    
     WeeklyReport(StartDate: Date [PK], NumCrime: INT, MostDangerStreet: VARCHAR(50) [Attribute Level Constraint to Street.Name] , MostSafeStreet: VARCHAR(50) [Attribute Level Constraint to Street.Name])
-
+    
     Crime(CrimeID: INT [PK], CrimeType: VARCHAR(50), CrimeTime: Time, Address: VARCHAR(70), StreetID: INT [FK to Street.StreetID], Description: VARCHAR(255), ByUser: BOOLEAN)
-
+    
     SafetyLevel(Level: INT [PK], min_danger: REAL, max_danger: REAL )
-
+    
     StreetBoard(BoardID: INT [PK], Content: VARCHAR(500), StreetID: INT [FK to Street.StreetID])
-
+    
     Street(StreetID: INT [PK], Name: VARCHAR(30), ZipCode: INT, NumCrimes: INT, Frequency: REAL, Trend: REAL)
 
 
