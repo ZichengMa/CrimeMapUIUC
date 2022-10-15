@@ -13,7 +13,7 @@
 
 6. **WeeklyReport**: contains weekly crime information such as most dangerous street, least dangerous street, etc.   
 
-   ![schema](schema.jpg)
+   ![schema](imgs/schema.jpg)
 
 ## Assumption
 
@@ -52,8 +52,8 @@
 
 For weekly report, we will update it once a week. Although it can have relation table with others, for saving computation resources and storage, we just update it once a week instead of saving relation into a new table. To illustrate more clearly, weekly report's data is from Crime table but we won't build a table saving the relation between them in order to save resources.
 
-    Report(UserID,  CrimeID[PK])
-    Post(  (UserID,BoardID) [PK] )
-    Grade( StreetID [PK], Level )
-    Occur( CrimeID [PK], StreetID)
-    Have( (BoardID, StreeID)[PK] )
+    Report( UserID[FK to User],  CrimeID[FK to Crime] [PK] )
+    Post(  (UserID[FK to User],BoardID[FK to StreetBoard]) [PK] )
+    Grade( StreetID [FK to Street] [PK], Level[FK to SaftyLevel])
+    Occur( (CrimeID [FK to Crime], StreetID[FK to Street]) [PK])
+    Have( (BoardID[FK to StreetBoard], StreeID[FK to Street])[PK] )

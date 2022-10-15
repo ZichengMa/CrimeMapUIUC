@@ -61,14 +61,14 @@ Our data will be the records of crime within UIUC campus and surrounding areas s
 
 **MAP UI：**
 
-![MAP_UI1](map.jpeg) 
+![MAP_UI1](imgs/map.jpeg) 
 
 **TABLE UI:**
 
-<img src="table.jpeg" alt="TableUI" style="zoom: 30%;" />
+<img src="imgs/table.jpeg" alt="TableUI" style="zoom: 30%;" />
 
 **BOARDS UI:**
-![BOARDS](boards.jpeg)
+![BOARDS](imgs/boards.jpeg)
 
 ## Project work distribution:
 
