@@ -31,6 +31,16 @@
         PRIMARY KEY (ID)
     );
 ### Crime
+    CREATE TABLE Crime (
+        CrimeID INT NOT NULL,
+        Address VARCHAR(300) DEFAULT NULL,
+        CrimeType VARCHAR(45) NOT NULL,
+        ByUser TINYINT(1) NOT NULL,
+        CrimeTime DATETIME NOT NULL,
+        Description VARCHAR(200) NOT NULL,
+        PRIMARY KEY (CrimeID),
+        FOREIGN KEY (StreetID) REFERENCES Street(StreetID) 
+    );
 ### SafetyLevel
     CREATE TABLE SafetyLevel (
         LEVEL INT NOT NULL,
@@ -38,3 +48,7 @@
         MaxDanger DOUBLE NOT NULL,
         PRIMARY KEY (LEVEL)
     );
+
+## Advance Query
+
+## Indexing 
