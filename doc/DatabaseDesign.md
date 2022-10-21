@@ -61,7 +61,7 @@
 	WHERE CrimeType = 'Theft' AND Name = 'East Springfield Avenue'
 ```
 
-<img src="D:\Desktop\学习资料\CS411\fa22-cs411-A-team004-411Survive\doc\imgs\ADQUERY1_15rows.png" style="zoom:67%;" />
+<img src="imgs\ADQUERY1_15rows.png" style="zoom:67%;" />
 
 
 
@@ -91,7 +91,7 @@ EXPLAIN ANALYZE
 	
 ```
 
-<img src="D:\Desktop\学习资料\CS411\fa22-cs411-A-team004-411Survive\doc\imgs\QUERY1_without_index.png" style="zoom: 80%;" />
+<img src="imgs\QUERY1_without_index.png" style="zoom: 80%;" />
 
 Firstly, we analyzed the 1st query without index. The filter part cost a lot.
 
@@ -99,7 +99,7 @@ Firstly, we analyzed the 1st query without index. The filter part cost a lot.
 CREATE INDEX index_crimetime ON Crime_Map.Crime (CrimeTime)
 ```
 
-![](D:\Desktop\学习资料\CS411\fa22-cs411-A-team004-411Survive\doc\imgs\QUERY1_index1.png)
+<img src="imgs\QUERY1_index1.png" style="zoom:80%;" />
 
 Next, we added an index on CrimeTime attribute but we found that the cost and time didn't change a lot.
 
@@ -107,7 +107,7 @@ Next, we added an index on CrimeTime attribute but we found that the cost and ti
 CREATE INDEX index_crimetype ON Crime_Map.Crime (CrimeType)
 ```
 
-<img src="D:\Desktop\学习资料\CS411\fa22-cs411-A-team004-411Survive\doc\imgs\QUERY1_index2.png" style="zoom:80%;" />
+<img src="imgs\QUERY1_index2.png" style="zoom:80%;" />
 
 Then, we added an index on CrimeType attribute which is an attribute in our filter condition. This time, the performance improved a lot.
 
@@ -115,6 +115,6 @@ Then, we added an index on CrimeType attribute which is an attribute in our filt
 CREATE INDEX index_streetname ON Crime_Map.Street (Name)
 ```
 
-<img src="D:\Desktop\学习资料\CS411\fa22-cs411-A-team004-411Survive\doc\imgs\QUERY1_index3.png" style="zoom:80%;" />
+<img src="imgs\QUERY1_index3.png" style="zoom:80%;" />
 
 Finally, we added one more index on Street's Name which is also an attribute in our filter condition. Our query's speed also became faster. And the cost of filter decreased a lot from 44.05 to 0.97.
