@@ -178,7 +178,13 @@ create index index_freq on Crime_Map.Street (Frequency);
 
 <img src="imgs\QUERY2_index_freq.jpg" style="zoom:80%;" />
 
+#### Fun Fact
 
+When running query2, we find that sometimes running the same query 2 times we can get different running time, shown as below. We suppose it's because sometimes sql will store cache in memory and if we run an experiment many times sql can speed up calculation by storing the cache.
+
+<img src="imgs\QUERY2_runtime_without_index.jpg" style="zoom:80%;" />
+
+<img src="imgs\QUERY2_secondruntime_without_index.jpg" style="zoom:80%;" />
 
 
 
