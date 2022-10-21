@@ -100,7 +100,8 @@ CREATE TRIGGER ChangeFreq
 
 delimiter ;
 ```
-
+## Inserting at least 1000 Rows
+![1000](imgs/thousand.png)
 ## Advance Query
 
 ```sql
