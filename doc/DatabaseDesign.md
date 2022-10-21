@@ -197,7 +197,7 @@ First, we experiment without index, the filter (where) part also cost a lot.
 <img src="imgs\QUERY2_without_index.jpg" style="zoom:80%;" />
 
 
-Next, we add index on MinDanger on table SafetyLevel. We can find all the analytic data is nearly the same as the experiment without index. We believe this is because the number of MinDanger is too small in the table SafetyLevel, so index cannot improve the speed of filter and join.
+Next, we add index on MinDanger on table SafetyLevel, because MinDanger appears in join and filter. We can find all the analytic data is nearly the same as the experiment without index. We believe this is because the number of MinDanger is too small in the table SafetyLevel, so index cannot improve the speed of filter and join.
 
 ```sql
 create index index_MinDanger on Crime_Map.SafetyLevel (MinDanger)
@@ -213,7 +213,7 @@ create index index_MaxDanger on Crime_Map.SafetyLevel (MaxDanger)
 
 <img src="imgs\QUERY2_index_MaxDanger.jpg" style="zoom:80%;" />
 
-Finally, we add index on Frequency on table Street. We find out that the cost of filter decrease from 107.04 to 50.87. This is because the number of frequency in Street is large, so adding index to this column can speed up the query.
+Finally, we add index on Frequency on table Street, because Frequency also plays a role in join and filter, and the number of Frequency is huge. We find out that the cost of filter decrease from 107.04 to 50.87. This is because the number of frequency in Street is large, so adding index to this column can speed up the query.
 
 ```sql
 create index index_freq on Crime_Map.Street (Frequency);
