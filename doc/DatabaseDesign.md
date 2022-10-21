@@ -1,6 +1,7 @@
 # Database Design
 ## Data Definition Language (DDL)
 ### Street
+```sql
     CREATE TABLE Street (
         County VARCHAR(45) NOT NULL,
         Frequency FLOAT NOT NULL,
@@ -11,7 +12,9 @@
         ZipCode INT NOT NULL,
         PRIMARY KEY (StreetID)
     );
+```
 ### StreetBoard
+```sql
     CREATE TABLE StreetBoard (
         Content VARCHAR(10000) DEFAULT NULL,
         StreetID INT NOT NULL,
@@ -22,7 +25,9 @@
             ON DELETE SET NULL
             ON UPDATE CASCADE 
     );
+```
 ### User
+```sql
     CREATE TABLE User (
         ID INT NOT NULL,
         Name VARCHAR(45) DEFAULT NULL,
@@ -30,7 +35,9 @@
         Password INT NOT NULL,
         PRIMARY KEY (ID)
     );
+```
 ### Crime
+```sql
     CREATE TABLE Crime (
         CrimeID INT NOT NULL,
         Address VARCHAR(300) DEFAULT NULL,
@@ -41,13 +48,16 @@
         PRIMARY KEY (CrimeID),
         FOREIGN KEY (StreetID) REFERENCES Street(StreetID) 
     );
+```
 ### SafetyLevel
+```sql
     CREATE TABLE SafetyLevel (
         LEVEL INT NOT NULL,
         MinDanger DOUBLE NOT NULL,
         MaxDanger DOUBLE NOT NULL,
         PRIMARY KEY (LEVEL)
     );
+```
 
 ## Advance Query
 
