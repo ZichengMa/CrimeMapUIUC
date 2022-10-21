@@ -89,6 +89,8 @@
 
 ## Indexing 
 
+#### For query 1
+
 ```sql
 EXPLAIN ANALYZE 
 	SELECT CrimeID, CrimeType, CrimeTime, Address, Description
@@ -103,7 +105,7 @@ EXPLAIN ANALYZE
 
 <img src="imgs\QUERY1_without_index.png" style="zoom: 80%;" />
 
-Firstly, we analyzed the 1st query without index. The filter part cost a lot.
+Firstly, we analyzed the 1st query without index. The filter part cost a lot. 
 
 ```sql
 CREATE INDEX index_crimetime ON Crime_Map.Crime (CrimeTime)
@@ -111,7 +113,7 @@ CREATE INDEX index_crimetime ON Crime_Map.Crime (CrimeTime)
 
 <img src="imgs\QUERY1_index1.png" style="zoom:80%;" />
 
-Next, we added an index on CrimeTime attribute but we found that the cost and time didn't change a lot.
+Next, we added an index on CrimeTime attribute but we found that the cost and time didn't change a lot. Because we wanted to see if the index has no relation to our filter condition, will the performance be improved by using this index. Unfortunately, this kind of index is useless.
 
 ```sql
 CREATE INDEX index_crimetype ON Crime_Map.Crime (CrimeType)
@@ -119,7 +121,7 @@ CREATE INDEX index_crimetype ON Crime_Map.Crime (CrimeType)
 
 <img src="imgs\QUERY1_index2.png" style="zoom:80%;" />
 
-Then, we added an index on CrimeType attribute which is an attribute in our filter condition. This time, the performance improved a lot.
+Then, we added an index on CrimeType attribute which is an attribute in our filter condition. We added this index because this attribute is related to our filter and index can make find record with the search key quicker. This time, the performance improved a lot.
 
 ```sql
 CREATE INDEX index_streetname ON Crime_Map.Street (Name)
@@ -127,4 +129,20 @@ CREATE INDEX index_streetname ON Crime_Map.Street (Name)
 
 <img src="imgs\QUERY1_index3.png" style="zoom:80%;" />
 
-Finally, we added one more index on Street's Name which is also an attribute in our filter condition. Our query's speed also became faster. And the cost of filter decreased a lot from 44.05 to 0.97.
+Finally, we added one more index on Street's Name which is also an attribute in our filter condition. The reason is the same as above, because this attribute is related to our filter and index can make find record with the search key quicker. Our query's speed also became faster. And the cost of filter decreased a lot from 44.05 to 0.97.
+
+------
+
+#### For query 2
+
+
+
+
+
+
+
+------
+
+#### Conclusion
+
+From our experiments, we think that the key to improve query performance is making index related to attributes in filter or any condition in the query. On the other hand, if the index is related to some attributes that are not used in searching, condition or filter, the index won't improve the query performance very much.
