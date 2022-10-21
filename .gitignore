@@ -1,3 +1,6 @@
-CrimeData.pdf
-CrimeData.xlsx
+*.pdf
+*.xlsx
+*.csv
+*.ipynb
+.ipynb_checkpoints
 .DS_Store

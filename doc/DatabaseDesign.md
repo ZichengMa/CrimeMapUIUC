@@ -74,16 +74,20 @@
 <img src="imgs\ADQUERY1_15rows.png" style="zoom:67%;" />
 
 
-
-
-
-
-
-
-
 ```sql
-
+    select Name, level, levelnum.num
+    from Crime_Map.Street s join Crime_Map.SafetyLevel l 
+    on (s.Frequency >= l.MinDanger and s.Frequency <= l.MaxDanger) 
+    natural join    (select level,count(s.StreetID) as num
+                    from Crime_Map.Street s right join Crime_Map.SafetyLevel l 
+                    on (s.Frequency >= l.MinDanger and s.Frequency <= l.MaxDanger)
+                    group by Level
+                    order by Level ) as levelnum
+    order by level desc
 ```
+<img src="imgs\ADQUERY2_15rows.jpg" style="zoom:67%;" />
+
+
 
 
 
@@ -134,8 +138,45 @@ Finally, we added one more index on Street's Name which is also an attribute in 
 ------
 
 #### For query 2
+```sql
+explain analyze
+    select Name, level, Frequency, levelnum.num
+	from Crime_Map.Street s join Crime_Map.SafetyLevel l 
+    on (s.Frequency >= l.MinDanger and s.Frequency <= l.MaxDanger) 
+	natural join (select level,count(s.StreetID) as num
+	from Crime_Map.Street s right join Crime_Map.SafetyLevel l 
+    on (s.Frequency >= l.MinDanger and s.Frequency <= l.MaxDanger)
+	group by Level) as levelnum
+    where Frequency >= 1
+	order by level desc
+```
+First, we experiment without index, the filter (where) part also cost a lot.
+<img src="imgs\QUERY2_without_index.jpg" style="zoom:80%;" />
 
 
+Next, we add index on MinDanger on table SafetyLevel. We can find all the analytic data is nearly the same as the experiment without index. We believe this is because the number of MinDanger is too small in the table SafetyLevel, so index cannot improve the speed of filter and join.
+
+```sql
+create index index_MinDanger on Crime_Map.SafetyLevel (MinDanger)
+```
+
+<img src="imgs\QUERY2_index_MinDanger.jpg" style="zoom:80%;" />
+
+Then, to prove our hypothesis is correct, we add index on MaxDanger on table SafetyLevel. We find that the experiment result is also the same as the experiment without index, which prove our hypothesis is correct.
+
+```sql
+create index index_MaxDanger on Crime_Map.SafetyLevel (MaxDanger)
+```
+
+<img src="imgs\QUERY2_index_MaxDanger.jpg" style="zoom:80%;" />
+
+Finally, we add index on Frequency on table Street. We find out that the cost of filter decrease from 107.04 to 50.87. This is because the number of frequency in Street is large, so adding index to this column can speed up the query.
+
+```sql
+create index index_freq on Crime_Map.Street (Frequency);
+```
+
+<img src="imgs\QUERY2_index_freq.jpg" style="zoom:80%;" />
 
 
 
