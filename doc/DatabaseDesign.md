@@ -1,4 +1,6 @@
 # Database Design
+## Implementing the Database Table on GCP
+![database](imgs/database_exists.png)
 ## Data Definition Language (DDL)
 ### Street
 ```sql
