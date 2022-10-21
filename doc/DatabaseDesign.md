@@ -59,6 +59,46 @@
     );
 ```
 
+### Trigger
+```sql
+delimiter //
+use Crime_Map //
+CREATE TRIGGER InsertCrimeTrig
+    before INSERT ON Crime_Map.Crime
+        FOR EACH ROW
+    BEGIN
+
+        -- SET NumCrime
+        UPDATE Crime_Map.Street
+        SET NumCrime = NumCrime + 1
+        WHERE Crime_Map.Street.StreetID = New.StreetID;
+		-- set CrimeID
+        set new.CrimeID = (select max(CrimeID) from Crime_Map.Crime) + 1;
+    END //
+
+delimiter ;
+
+
+delimiter //
+use Crime_Map //
+CREATE TRIGGER ChangeFreq
+    after INSERT ON Crime_Map.Crime
+        FOR EACH ROW
+    BEGIN
+        -- SET frequency = frequenceyCrime
+        UPDATE Crime_Map.Street
+        SET Frequency =  (
+            SELECT COUNT(CrimeID)
+            FROM Crime_Map.Crime c 
+            WHERE StreetID = New.StreetID AND DATEDIFF(CurTime(),c.CrimeTime) < 30
+        )
+        WHERE Crime_Map.Street.StreetID = New.StreetID;
+    
+    END //
+
+delimiter ;
+```
+
 ## Advance Query
 
 ```sql
