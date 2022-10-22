@@ -61,7 +61,7 @@
     );
 ```
 
-### Trigger
+## Trigger
 ```sql
 delimiter //
 use Crime_Map //
@@ -103,40 +103,40 @@ delimiter ;
 ## Inserting at least 1000 Rows
 ![1000](imgs/thousand.png)
 ## Advance Query
-
+### Advance Query 1:
 ```sql
 	SELECT CrimeID, CrimeType, CrimeTime, Address, Description
 	FROM Crime_Map.Crime NATURAL JOIN Crime_Map.Street
 	WHERE CrimeType = 'Theft' AND Name = 'East Green Street'
+
 	UNION
+
 	SELECT CrimeID, CrimeType, CrimeTime, Address, Description
 	FROM Crime_Map.Crime NATURAL JOIN Crime_Map.Street
 	WHERE CrimeType = 'Theft' AND Name = 'East Springfield Avenue'
 ```
-
+### Advance Query 1 Output:
 <img src="imgs\ADQUERY1_15rows.png" style="zoom:67%;" />
 
-
+### Advance Query 2:
 ```sql
-    select Name, level, levelnum.num
-    from Crime_Map.Street s join Crime_Map.SafetyLevel l 
-    on (s.Frequency >= l.MinDanger and s.Frequency <= l.MaxDanger) 
-    natural join    (select level,count(s.StreetID) as num
-                    from Crime_Map.Street s right join Crime_Map.SafetyLevel l 
-                    on (s.Frequency >= l.MinDanger and s.Frequency <= l.MaxDanger)
-                    group by Level
-                    order by Level ) as levelnum
-    order by level desc
+    SELECT Name, level, levelnum.num
+    FROM Crime_Map.Street s JOIN Crime_Map.SafetyLevel l 
+    ON (s.Frequency >= l.MinDanger AND s.Frequency <= l.MaxDanger) 
+    NATURAL JOIN   (SELECT level,count(s.StreetID) AS num
+                    FROM Crime_Map.Street s RIGHT JOIN Crime_Map.SafetyLevel l 
+                    ON (s.Frequency >= l.MinDanger AND s.Frequency <= l.MaxDanger)
+                    GROUP BY Level
+                    ORDER BY Level ) AS levelnum
+    ORDER BY level desc
 ```
+### Advance Query 2 Output:
 <img src="imgs\ADQUERY2_15rows.jpg" style="zoom:67%;" />
-
-
-
 
 
 ## Indexing 
 
-#### For query 1
+### For query 1
 
 ```sql
 EXPLAIN ANALYZE 
@@ -180,18 +180,18 @@ Finally, we added one more index on Street's Name which is also an attribute in 
 
 ------
 
-#### For query 2
+### For query 2
 ```sql
 explain analyze
-    select Name, level, Frequency, levelnum.num
-	from Crime_Map.Street s join Crime_Map.SafetyLevel l 
-    on (s.Frequency >= l.MinDanger and s.Frequency <= l.MaxDanger) 
-	natural join (select level,count(s.StreetID) as num
-	from Crime_Map.Street s right join Crime_Map.SafetyLevel l 
-    on (s.Frequency >= l.MinDanger and s.Frequency <= l.MaxDanger)
-	group by Level) as levelnum
-    where Frequency >= 1
-	order by level desc
+    SELECT Name, level, Frequency, levelnum.num
+	FROM Crime_Map.Street s JOIN Crime_Map.SafetyLevel l 
+    ON (s.Frequency >= l.MinDanger AND s.Frequency <= l.MaxDanger) 
+	NATURAL JOIN (SELECT level,COUNT(s.StreetID) AS num
+	FROM Crime_Map.Street s RIGHT JOIN Crime_Map.SafetyLevel l 
+    ON (s.Frequency >= l.MinDanger AND s.Frequency <= l.MaxDanger)
+	GROUP BY Level) AS levelnum
+    WHERE Frequency >= 1
+	ORDER BY level DESC
 ```
 First, we experiment without index, the filter (where) part also cost a lot.
 <img src="imgs\QUERY2_without_index.jpg" style="zoom:80%;" />
@@ -200,7 +200,7 @@ First, we experiment without index, the filter (where) part also cost a lot.
 Next, we add index on MinDanger on table SafetyLevel, because MinDanger appears in join and filter. We can find all the analytic data is nearly the same as the experiment without index. We believe this is because the number of MinDanger is too small in the table SafetyLevel, so index cannot improve the speed of filter and join.
 
 ```sql
-create index index_MinDanger on Crime_Map.SafetyLevel (MinDanger)
+CREATE INDEX index_MinDanger ON Crime_Map.SafetyLevel (MinDanger)
 ```
 
 <img src="imgs\QUERY2_index_MinDanger.jpg" style="zoom:80%;" />
@@ -208,7 +208,7 @@ create index index_MinDanger on Crime_Map.SafetyLevel (MinDanger)
 Then, to prove our hypothesis is correct, we add index on MaxDanger on table SafetyLevel. We find that the experiment result is also the same as the experiment without index, which prove our hypothesis is correct.
 
 ```sql
-create index index_MaxDanger on Crime_Map.SafetyLevel (MaxDanger)
+CREATE INDEX index_MaxDanger ON Crime_Map.SafetyLevel (MaxDanger)
 ```
 
 <img src="imgs\QUERY2_index_MaxDanger.jpg" style="zoom:80%;" />
@@ -216,12 +216,12 @@ create index index_MaxDanger on Crime_Map.SafetyLevel (MaxDanger)
 Finally, we add index on Frequency on table Street, because Frequency also plays a role in join and filter, and the number of Frequency is huge. We find out that the cost of filter decrease from 107.04 to 50.87. This is because the number of frequency in Street is large, so adding index to this column can speed up the query.
 
 ```sql
-create index index_freq on Crime_Map.Street (Frequency);
+CREATE INDEX index_freq ON Crime_Map.Street (Frequency);
 ```
 
 <img src="imgs\QUERY2_index_freq.jpg" style="zoom:80%;" />
 
-#### Fun Fact
+### Fun Fact
 
 When running query2, we find that sometimes running the same query 2 times we can get different running time, shown as below. We suppose it's because sometimes sql will store cache in memory and if we run an experiment many times sql can speed up calculation by storing the cache.
 
@@ -233,7 +233,7 @@ When running query2, we find that sometimes running the same query 2 times we ca
 
 ------
 
-#### Conclusion
+## Conclusion
 
 From our experiments, we think that the key to improve query performance is making index related to attributes in filter or any condition in the query. On the other hand, if the index is related to some attributes that are not used in searching, condition or filter, the index won't improve the query performance very much.
 
