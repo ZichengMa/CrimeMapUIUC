@@ -236,3 +236,5 @@ When running query2, we find that sometimes running the same query 2 times we ca
 #### Conclusion
 
 From our experiments, we think that the key to improve query performance is making index related to attributes in filter or any condition in the query. On the other hand, if the index is related to some attributes that are not used in searching, condition or filter, the index won't improve the query performance very much.
+
+In the experiments, we met a situation where adding index made the inner join more costy, our explanation for that behaviour is that adding index will cause some overhead if this index is can't replace the role of primary key.
