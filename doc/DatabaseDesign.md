@@ -168,7 +168,7 @@ CREATE INDEX index_crimetype ON Crime_Map.Crime (CrimeType)
 
 <img src="imgs\QUERY1_index2.png" style="zoom:80%;" />
 
-Then, we added an index on CrimeType attribute which is an attribute in our filter condition. We added this index because this attribute is related to our filter and index can make find record with the search key quicker. This time, the performance improved a lot.
+Then, we added an index on CrimeType attribute which is an attribute in our filter condition. We added this index because this attribute is related to our filter and index can make find record with the search key quicker. This time, the performance improved a lot. The reason why the inner loop has higher cost than no index version is probably because CrimeType contains not much types of different values, so it didn't really help to accelerate in join.
 
 ```sql
 CREATE INDEX index_streetname ON Crime_Map.Street (Name)
