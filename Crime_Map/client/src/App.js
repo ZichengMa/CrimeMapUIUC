@@ -1,52 +1,27 @@
-
+import Navbar from './components/Navbar';
 import './App.css';
 import { useState } from 'react';
 import Axios from 'axios'
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import Home from './pages';
+import Insert from './pages/insert';
+import Delete from './pages/delete';
+import Search from './pages/search';
+import Update from './pages/update';
+
+
 function App() {
-
-  const [name, setName] = useState("");
-  const [id, setID] = useState(0);
-  const [sex, setSex] = useState("");
-  const [passward, setPassward] = useState("");
-  const adduser = async () =>{
-    await Axios.post('http://localhost:3001', {
-      id: id, 
-      name: name, 
-      sex: sex, 
-      passward: passward}).then(() => {
-        console.log("success");
-      });
-  };
-  const displayInfo = () => {
-    console.log(name + id + sex + passward);
-  };
   return (
-    <div className="App">
-      <div className = "information">
-        <label>Name:</label>
-        <input type = "text" 
-        onChange={(event) => {
-          setName(event.target.value);
-        }}/> 
-        <label>ID:</label>
-        <input type = "text" 
-        onChange={(event) => {
-          setID(event.target.value);
-        }}/> 
-        <label>Sex:</label>
-        <input type = "text" 
-        onChange={(event) => {
-          setSex(event.target.value);
-        }}/> 
-
-        <label>Passward:</label>
-        <input type = "text" 
-        onChange={(event) => {
-          setPassward(event.target.value);
-        }}/> 
-        <button onClick = {adduser}>Sign in</button>
-      </div>
-    </div>
+    <Router>
+    <Navbar />
+    <Routes>
+        <Route exact path='/' exact element={<Home />} />
+        <Route path='/insert' element={<Insert />} />
+        <Route path='/delete' element={<Delete />} />
+        <Route path='/search' element={<Search />} />
+        <Route path='/update' element={<Update />} />
+    </Routes>
+    </Router>
   );
 }
 
