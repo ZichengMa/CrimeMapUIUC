@@ -1,7 +1,5 @@
 import Navbar from './components/Navbar';
 import './App.css';
-import { useState } from 'react';
-import Axios from 'axios'
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Home from './pages';
 import Insert from './pages/insert';
@@ -15,7 +13,7 @@ function App() {
     <Router>
     <Navbar />
     <Routes>
-        <Route exact path='/' exact element={<Home />} />
+        <Route exact path='/' element={<Home />} />
         <Route path='/insert' element={<Insert />} />
         <Route path='/delete' element={<Delete />} />
         <Route path='/search' element={<Search />} />

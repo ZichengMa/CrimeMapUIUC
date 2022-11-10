@@ -7,17 +7,20 @@ const Navbar = () => {
     <>
       <Nav>
         <NavMenu>
+          <NavLink to="/" activeStyle>
+            Home
+          </NavLink>
           <NavLink to="/insert" activeStyle>
-            insert
+            Insert
           </NavLink>
           <NavLink to="/delete" activeStyle>
-            delete
+            Delete
           </NavLink>
           <NavLink to="/search" activeStyle>
-            search
+            Search
           </NavLink>
           <NavLink to="/update" activeStyle>
-            update
+            Update
           </NavLink>
         </NavMenu>
       </Nav>
