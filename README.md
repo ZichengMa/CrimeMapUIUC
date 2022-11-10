@@ -14,3 +14,12 @@ You should make sure you keep your project root files up-to-date. Information fo
 
 ## Code Contribution
 Individual code contribution will be used to evaluate individual contribution to the project.
+
+## Environment
+npx create-react-app
+ 
+npm install react-router-dom 
+
+npm install --save styled-components
+
+
