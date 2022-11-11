@@ -15,20 +15,15 @@ const Home = () => {
     content: {
       height: '100%',
       width: '100%',
-      backgroundColor: 'rgba(0, 0, 0, 0.1)',
+      backgroundColor: 'rgba(0, 0, 0, 0)',
     }
   }
   return (
     <div style={styles.header}>
       <div style={styles.content}>
-        <h2 style={{textAlign: "center", color: "HighlightText"}}>Welcome to CRIME MAP</h2>
+        <h2 style={{textAlign: "center", color: "HighlightText", fontSize: 30}}>Welcome to CRIME MAP</h2>
       </div>
     </div>
-    // <div>
-    //   <div style={{ backgroundImage:`url(${image})`}}>
-    //   </div>
-    //   <h1>Welcome to CRIME MAP</h1>
-    // </div>
   );
 };
   

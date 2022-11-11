@@ -6,6 +6,7 @@ import Insert from './pages/insert';
 import Delete from './pages/delete';
 import Search from './pages/search';
 import Update from './pages/update';
+import Crime_Map from './pages/map';
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path='/delete' element={<Delete />} />
         <Route path='/search' element={<Search />} />
         <Route path='/update' element={<Update />} />
+        <Route path='/map'    element={<Crime_Map />} />
     </Routes>
     </Router>
   );

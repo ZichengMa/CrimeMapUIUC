@@ -1,6 +1,6 @@
 
 import React from "react";
-import './insert.css';
+import './page.css';
 import { useState } from 'react';
 import Axios from 'axios'
 

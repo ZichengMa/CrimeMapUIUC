@@ -22,6 +22,9 @@ const Navbar = () => {
           <NavLink to="/update" activeStyle>
             Update
           </NavLink>
+          <NavLink to="/map" activeStyle>
+            Crime Map
+          </NavLink>
         </NavMenu>
       </Nav>
     </>
