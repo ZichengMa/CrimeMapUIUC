@@ -39,7 +39,18 @@ app.post('/insert', (req, res) => {
     });
 });
 
-
+app.post('/delete', (req, res) => {
+    const id = req.body.id;
+    db.query('DELETE from User where ID = ?', [id],
+    (err, result) => {
+        if (err) {
+            console.log(err);
+        }
+        else {
+            res.send("Values Inserted");
+        }
+    })
+})
 
 app.post('/searchdb', (req, res) => {
     const crime_type = req.body.crime_type;

@@ -15,7 +15,7 @@ const Insert = () => {
     const adduser = async () =>{
       await Axios.post('http://localhost:3001/insert', {
         name: name, 
-        sex: sex, 
+        sex: sex.value, 
         passward: passward}).then(() => {
           console.log("success");
         });
