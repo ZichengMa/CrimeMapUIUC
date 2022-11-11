@@ -3,13 +3,17 @@ import React from "react";
 import './page.css';
 import { useState } from 'react';
 import Axios from 'axios'
+import Select from 'react-select'
 
 const Insert = () => {
     const [name, setName] = useState("");
     const [sex, setSex] = useState("");
     const [passward, setPassward] = useState("");
+    const Sex_Option = [{value: "male",   label: "male"},
+                        {value: "female", label: "female"},
+                        {value: "other",  label: "other"}]
     const adduser = async () =>{
-      await Axios.post('http://localhost:3001', {
+      await Axios.post('http://localhost:3001/insert', {
         name: name, 
         sex: sex, 
         passward: passward}).then(() => {
@@ -25,11 +29,10 @@ const Insert = () => {
             setName(event.target.value);
             }}/> 
             <label>Sex:</label>
-            <input type = "text" 
-            onChange={(event) => {
-            setSex(event.target.value);
-            }}/> 
-
+            <div className='SelectCrimeType'>
+              <Select options={Sex_Option}
+                      onChange={setSex}/>
+            </div>
             <label>Passward:</label>
             <input type = "text" 
             onChange={(event) => {

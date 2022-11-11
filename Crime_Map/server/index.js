@@ -22,7 +22,7 @@ const db = mysql.createConnection({
 });
 
 
-app.post('/', (req, res) => {
+app.post('/insert', (req, res) => {
     const name = req.body.name;
     const passward = req.body.passward;
     const sex = req.body.sex;
