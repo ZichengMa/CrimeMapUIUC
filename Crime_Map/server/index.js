@@ -52,6 +52,20 @@ app.post('/delete', (req, res) => {
     })
 })
 
+app.put('/update', (req, res) => {
+    const id = req.body.id;
+    const description = req.body.description;
+    db.query('Update Crime SET Description = ? WHERE CrimeID = ?', [description,id],
+    (err, result) => {
+        if (err) {
+            console.log(err);
+        }
+        else {
+            res.send("Update Seccessfully!");
+        }
+    })
+})
+
 app.post('/searchdb', (req, res) => {
     const crime_type = req.body.crime_type;
     const streetid = req.body.streetid;
