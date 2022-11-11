@@ -99,6 +99,30 @@ app.post('/searchdb', (req, res) => {
 
 });
 
+app.post('/advanced1', (req, res) => {
+    const crime_type1 = req.body.crime_type1;
+    const crime_type2 = req.body.crime_type2;
+    const streetid1 = req.body.streetid1;
+    const streetid2 = req.body.streetid2;
+
+    db.query("SELECT CrimeID, CrimeType, CrimeTime, Address, Description \
+	        FROM Crime_Map.Crime NATURAL JOIN Crime_Map.Street\
+	        WHERE CrimeType = ? AND StreetID = ? \
+	        UNION\
+	        SELECT CrimeID, CrimeType, CrimeTime, Address, Description\
+	        FROM Crime_Map.Crime NATURAL JOIN Crime_Map.Street\
+	        WHERE CrimeType = ? AND StreetID = ?",[crime_type1,streetid1,crime_type2,streetid2],
+            (err, result) => {
+                if(err){
+                    console.log(err);
+                }else{
+                    res.send(result);
+                }
+            });
+});
+
+
+
 app.get("/", (req, res) => {
     res.writeHead(200, {'Content-Type': 'text/html'});
     res.end('Hello World!');})
