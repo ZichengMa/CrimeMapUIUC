@@ -21,6 +21,7 @@ const Home = () => {
   return (
     <div style={styles.header}>
       <div style={styles.content}>
+        <h2 style={{textAlign: "center", color: "HighlightText", fontSize: 30}}>  </h2>
         <h2 style={{textAlign: "center", color: "HighlightText", fontSize: 30}}>Welcome to CRIME MAP</h2>
       </div>
     </div>

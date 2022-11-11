@@ -6,12 +6,10 @@ import Axios from 'axios'
 
 const Insert = () => {
     const [name, setName] = useState("");
-    const [id, setID] = useState(0);
     const [sex, setSex] = useState("");
     const [passward, setPassward] = useState("");
     const adduser = async () =>{
       await Axios.post('http://localhost:3001', {
-        id: id, 
         name: name, 
         sex: sex, 
         passward: passward}).then(() => {
@@ -25,11 +23,6 @@ const Insert = () => {
             <input type = "text" 
             onChange={(event) => {
             setName(event.target.value);
-            }}/> 
-            <label>ID:</label>
-            <input type = "text" 
-            onChange={(event) => {
-            setID(event.target.value);
             }}/> 
             <label>Sex:</label>
             <input type = "text" 
@@ -45,11 +38,6 @@ const Insert = () => {
             <button onClick = {adduser}>Sign in</button>
         </div>
         </div>
-    // <div>
-    //   <h1>
-    //     INSERT SQL
-    //   </h1>
-    // </div>
   );
 };
   

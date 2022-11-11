@@ -21,16 +21,14 @@ const db = mysql.createConnection({
     port: 3306
 });
 
-// db.connect;
 
 app.post('/', (req, res) => {
     const name = req.body.name;
-    const id = req.body.id;
     const passward = req.body.passward;
     const sex = req.body.sex;
 
-    db.query('INSERT INTO User (ID, Name, Sex, Passward) values (?, ?, ?, ?)', 
-    [id, name, sex, passward], 
+    db.query('INSERT INTO User (Name, Sex, Passward) values (?, ?, ?)', 
+    [name, sex, passward], 
     (err, result) => {
         if (err) {
             console.log(err);
@@ -41,9 +39,7 @@ app.post('/', (req, res) => {
     });
 });
 
-// app.post('/', (req, res) => {
-//     console.log(req.body);
-// });
+
 
 app.post('/searchdb', (req, res) => {
     const crime_type = req.body.crime_type;
