@@ -100,7 +100,6 @@ app.post('/searchdb', (req, res) => {
                   FROM Crime\
                   WHERE Date(CrimeTime) between ? and ? ",[fromdate,todate], 
         (err, result) => {
-            console.log(result);
             if(err){
                 console.log(err);
             }else{

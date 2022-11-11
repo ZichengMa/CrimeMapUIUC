@@ -9,7 +9,7 @@ const Delete = () => {
   const deleteuser = async () =>{
     await Axios.post('http://localhost:3001/delete', {
         id: id}).then(() => {
-        console.log("success");
+        console.log("delete success");
       });
     };
     return (
