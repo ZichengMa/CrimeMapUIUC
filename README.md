@@ -19,7 +19,7 @@ Individual code contribution will be used to evaluate individual contribution to
 
 ### Client Folder
 npx create-react-app
- 
+
 npm install react-router-dom 
 
 npm install --save styled-components
@@ -30,7 +30,12 @@ npm install axios
 
 npm i -S @react-google-maps/api
 
+npm install react-date-range
+
+npm install date-fns
+
+npm install react-select
+
 ### Server Folder
 npm install fs
-
 
