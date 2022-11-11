@@ -111,7 +111,6 @@ export default Search;
 
 const street_options = [
  {value: 0, label: 'All streets'},
- {value: 10853, label: '311 South Praire driveway'},
  {value: 10634, label: '311 South Prairie driveway'},
  {value: 11378, label: 'A Street'},
  {value: 10923, label: 'Aberdeen Drive'},

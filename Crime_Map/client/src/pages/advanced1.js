@@ -92,8 +92,6 @@ function Advanced1() {
 export default Advanced1;
 
 const street_options = [
- {value: 0, label: 'All streets'},
- {value: 10853, label: '311 South Praire driveway'},
  {value: 10634, label: '311 South Prairie driveway'},
  {value: 11378, label: 'A Street'},
  {value: 10923, label: 'Aberdeen Drive'},
@@ -1095,7 +1093,6 @@ const street_options = [
  {value: 11169, label: 'East Kerr Avenue'}]
 
 const crimetype_options = [
-{value: 'All', label: 'All crime types'},
 {value: 'Theft', label: 'Theft'},
 {value: 'Disorderly Conduct', label: 'Disorderly Conduct'},
 {value: 'Drinking underage', label: 'Drinking underage'},
