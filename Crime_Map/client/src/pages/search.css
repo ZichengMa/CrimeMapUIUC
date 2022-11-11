@@ -1,0 +1,88 @@
+.Search {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.DateRange{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(194, 211, 240);
+}
+.DateRange label{
+  padding-top: 20px;
+  font-size: 25px;
+  font-style: italic;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.RangeSelectPrompt input{
+  width: 300px;
+  height: 50px;
+  font-size: 20px;
+  padding-left: 10px;
+  margin: 20px;
+}
+
+
+
+.search_bar {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(194, 211, 240);
+}
+.search_bar input{
+  width: 300px;
+  height: 50px;
+  font-size: 20px;
+  padding-left: 10px;
+
+}
+.search_bar label{
+  margin-top: 20px;
+  font-size: 25px;
+  font-style: italic;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.SelectStreet{
+  width: 300px;
+  height: 200px;
+  margin-top: 10px;
+}
+.SelectCrimeType{
+  width: 300px;
+  height: 200px;
+  margin-top: 10px;
+}
+
+
+.SearchResult {
+  width: 700px;
+  height: 90px;
+  border: 10px inset  rgb(157, 185, 234);
+  margin: 10px;
+  display: flex;
+  padding: 6px;
+  font-size: 12px;
+  font-style: italic;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.SearchResult h3 {
+  margin: 10px;
+}
+
+
+button {
+  width: 300px;
+  height: 50px;
+  margin-top: 15px;
+}
+
+button hover {
+  cursor: pointer;
+}

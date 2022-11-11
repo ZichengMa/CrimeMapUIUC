@@ -45,6 +45,64 @@ app.post('/', (req, res) => {
 //     console.log(req.body);
 // });
 
+app.post('/searchdb', (req, res) => {
+    const crime_type = req.body.crime_type;
+    const streetid = req.body.streetid;
+    const fromdate = req.body.fromdate;
+    const todate = req.body.todate;
+    if(crime_type == 'All' && streetid != 0){
+        db.query("SELECT Address, CrimeType, date_format(CrimeTime,'%Y-%m-%d %H:%i:%s') as CrimeTime, Description \
+                FROM Crime\
+                WHERE StreetID = ? AND Date(CrimeTime) between ? and ? ",[streetid,fromdate,todate], 
+        (err, result) => {
+            if(err){
+                console.log(err);
+            }else{
+                res.send(result);
+            }
+        });
+    }
+    if(crime_type != 'All' && streetid==0){
+        db.query("SELECT Address, CrimeType, date_format(CrimeTime,'%Y-%m-%d %H:%i:%s') as CrimeTime, Description \
+                  FROM Crime\
+                  WHERE Date(CrimeTime) between ? and ? AND CrimeType=?",[fromdate,todate,crime_type], 
+        (err, result) => {
+            if(err){
+                console.log(err);
+            }else{
+                res.send(result);
+            }
+        });
+    }
+    if(crime_type == 'All' && streetid == 0){
+        db.query("SELECT Address, CrimeType, date_format(CrimeTime,'%Y-%m-%d %H:%i:%s') as CrimeTime, Description \
+                  FROM Crime\
+                  WHERE Date(CrimeTime) between ? and ? ",[fromdate,todate], 
+        (err, result) => {
+            console.log(result);
+            if(err){
+                console.log(err);
+            }else{
+                res.send(result);
+            }
+        });
+    }
+    if(crime_type != 'All' && streetid != 0){
+        db.query("SELECT Address, CrimeType, date_format(CrimeTime,'%Y-%m-%d %H:%i:%s') as CrimeTime, Description \
+                  FROM Crime\
+                  WHERE StreetID = ? AND Date(CrimeTime) between ? and ? AND CrimeType=?",[streetid,fromdate,todate,crime_type], 
+        (err, result) => {
+            if(err){
+                console.log(err);
+            }else{
+                res.send(result);
+            }
+        });
+    }
+
+
+});
+
 app.get("/", (req, res) => {
     res.writeHead(200, {'Content-Type': 'text/html'});
     res.end('Hello World!');})
