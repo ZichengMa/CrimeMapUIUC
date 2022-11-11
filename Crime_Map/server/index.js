@@ -121,6 +121,22 @@ app.post('/advanced1', (req, res) => {
             });
 });
 
+app.post('/advanced2', (req, res) => {
+    db.query("SELECT Name, level, levelnum.num FROM Crime_Map.Street s JOIN Crime_Map.SafetyLevel l ON (s.Frequency >= l.MinDanger AND s.Frequency <= l.MaxDanger) \
+        NATURAL JOIN   (SELECT level,count(s.StreetID) AS num \
+                    FROM Crime_Map.Street s RIGHT JOIN Crime_Map.SafetyLevel l \
+                    ON (s.Frequency >= l.MinDanger AND s.Frequency <= l.MaxDanger) \
+                    GROUP BY Level \
+                    ORDER BY Level ) AS levelnum \
+        ORDER BY level desc",[],
+            (err, result) => {
+                if(err){
+                    console.log(err);
+                }else{
+                    res.send(result);
+                }
+            });
+});
 
 
 app.get("/", (req, res) => {

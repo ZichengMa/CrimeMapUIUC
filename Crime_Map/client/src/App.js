@@ -8,6 +8,7 @@ import Search from './pages/search';
 import Update from './pages/update';
 import Crime_Map from './pages/map';
 import Advanced1 from './pages/advanced1';
+import Advanced2 from './pages/advanced2';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path='/update' element={<Update />} />
         <Route path='/map'    element={<Crime_Map />} />
         <Route path='/advanced1'    element={<Advanced1 />} />
+        <Route path='/advanced2'    element={<Advanced2 />} />
     </Routes>
     </Router>
   );
