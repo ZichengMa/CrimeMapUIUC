@@ -33,7 +33,7 @@ function Advanced1() {
         streetid2: streetid2,
       }).then((response) => {
         /* Judge whether we get valid data from mysql */
-        if(response.data.length!=0){
+        if(response.data.length !== 0){
           setCrimeList(response.data);
           setSearchResult('Here is your result!\n');
         }else{
@@ -44,6 +44,8 @@ function Advanced1() {
 
   return (
     <div className="App">
+      <p> This advance query will return crimes that happen on either street you want to look at. 
+          You can put the street name together with the crime type of your choice for both streets. </p>
       <div className = "search_bar">
 
         <label>Please select a street</label>
@@ -52,16 +54,16 @@ function Advanced1() {
                   onChange={handlestreet1}/>
         </div>
 
-        <label>Please select another street</label>
-        <div className='SelectStreet'>
-          <Select options={street_options}
-                  onChange={handlestreet2}/>
-        </div>
-
         <label>Please select a crime type</label>
         <div className='SelectCrimeType'>
           <Select options={crimetype_options}
                   onChange={handlecrimetype1}/>
+        </div>
+
+        <label>Please select another street</label>
+        <div className='SelectStreet'>
+          <Select options={street_options}
+                  onChange={handlestreet2}/>
         </div>
 
         <label>Please select another crime type</label>

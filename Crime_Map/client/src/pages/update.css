@@ -1,16 +1,25 @@
 .update {
-    margin-top: 10%;
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
+.update p {
+    margin: 15px;
+    font-size: 25px;
+}
+
 .update button {
     width: 100px;
 }
 
+.update button:hover{
+    cursor: pointer;
+}
+
 .update input {
-    width: 50%;
-    height: 30%;
+    width: 30%;
+    height: 30px;
 }

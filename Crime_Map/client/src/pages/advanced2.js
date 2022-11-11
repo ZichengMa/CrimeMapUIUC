@@ -10,7 +10,7 @@ function Advanced2() {
       Axios.post('http://localhost:3001/advanced2', {
       }).then((response) => {
         /* Judge whether we get valid data from mysql */
-        if(response.data.length!=0){
+        if(response.data.length !== 0){
           setCrimeList(response.data);
           setSearchResult('Here is your result!\n');
         }else{
@@ -21,6 +21,7 @@ function Advanced2() {
 
   return (
     <div className="App">
+      <p> This query will return the top 20 most dangerous streets in UIUC area</p>
       <div className = "search_bar">
         <button onClick={search}>Search</button>
         <div>{searchResult}</div>

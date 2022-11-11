@@ -5,6 +5,7 @@
   }
 
   .DeleteApp {
+    margin-top: 15px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -23,7 +24,7 @@
     height: 50px;
     font-size: 20px;
     padding-left: 10px;
-    margin: 50px;
+    margin: 15px;
   }
   
   .DeleteInfo button {
@@ -38,7 +39,7 @@
     margin-top: 15px;
   }
   
-  .DeleteInfo button hover {
+  .DeleteInfo button:hover {
     cursor: pointer;
   }
   
@@ -48,6 +49,7 @@
     width: 100%;
     justify-content: center;
     align-items: center;
+    margin: 15px;
   }
   
   .information input {
@@ -55,7 +57,7 @@
     height: 50px;
     font-size: 20px;
     padding-left: 10px;
-    margin: 50px;
+    margin: 15px;
   }
   
   .information button {

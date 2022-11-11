@@ -17,7 +17,7 @@ const Insert = () => {
         name: name, 
         sex: sex.value, 
         passward: passward}).then(() => {
-          console.log("success");
+          alert("You have successfully signed up!");
         });
     };
     return (
@@ -38,7 +38,7 @@ const Insert = () => {
             onChange={(event) => {
             setPassward(event.target.value);
             }}/> 
-            <button onClick = {adduser}>Sign in</button>
+            <button onClick = {adduser}>Sign Up!</button>
         </div>
         </div>
   );

@@ -139,7 +139,7 @@ app.post('/advanced2', (req, res) => {
                     ON (s.Frequency >= l.MinDanger AND s.Frequency <= l.MaxDanger) \
                     GROUP BY Level \
                     ORDER BY Level ) AS levelnum \
-        ORDER BY level desc",[],
+        ORDER BY level desc LIMIT 20",[],
             (err, result) => {
                 if(err){
                     console.log(err);

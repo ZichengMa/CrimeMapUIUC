@@ -39,7 +39,7 @@ function Search() {
         todate:   format(range[0].endDate, "yyyy-MM-dd"),
       }).then((response) => {
         /* Judge whether we get valid data from mysql */
-        if(response.data.length!=0){
+        if(response.data.length !== 0){
           setCrimeList(response.data);
           setSearchResult('Here is your result!\n');
         }else{
