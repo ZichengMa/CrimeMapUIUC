@@ -52,6 +52,20 @@ app.post('/delete', (req, res) => {
     })
 })
 
+app.put('/update', (req, res) => {
+    const id = req.body.id;
+    const description = req.body.description;
+    db.query('Update Crime SET Description = ? WHERE CrimeID = ?', [description,id],
+    (err, result) => {
+        if (err) {
+            console.log(err);
+        }
+        else {
+            res.send("Update Seccessfully!");
+        }
+    })
+})
+
 app.post('/searchdb', (req, res) => {
     const crime_type = req.body.crime_type;
     const streetid = req.body.streetid;
@@ -86,7 +100,6 @@ app.post('/searchdb', (req, res) => {
                   FROM Crime\
                   WHERE Date(CrimeTime) between ? and ? ",[fromdate,todate], 
         (err, result) => {
-            console.log(result);
             if(err){
                 console.log(err);
             }else{
@@ -132,6 +145,22 @@ app.post('/advanced1', (req, res) => {
             });
 });
 
+app.post('/advanced2', (req, res) => {
+    db.query("SELECT Name, level, levelnum.num FROM Crime_Map.Street s JOIN Crime_Map.SafetyLevel l ON (s.Frequency >= l.MinDanger AND s.Frequency <= l.MaxDanger) \
+        NATURAL JOIN   (SELECT level,count(s.StreetID) AS num \
+                    FROM Crime_Map.Street s RIGHT JOIN Crime_Map.SafetyLevel l \
+                    ON (s.Frequency >= l.MinDanger AND s.Frequency <= l.MaxDanger) \
+                    GROUP BY Level \
+                    ORDER BY Level ) AS levelnum \
+        ORDER BY level desc LIMIT 20",[],
+            (err, result) => {
+                if(err){
+                    console.log(err);
+                }else{
+                    res.send(result);
+                }
+            });
+});
 
 
 app.get("/", (req, res) => {

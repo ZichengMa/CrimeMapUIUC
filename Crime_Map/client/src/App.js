@@ -6,8 +6,9 @@ import Insert from './pages/insert';
 import Delete from './pages/delete';
 import Search from './pages/search';
 import Update from './pages/update';
-import Crime_Map from './pages/map';
+import CrimeMap from './pages/map';
 import Advanced1 from './pages/advanced1';
+import Advanced2 from './pages/advanced2';
 
 function App() {
   return (
@@ -19,8 +20,9 @@ function App() {
         <Route path='/delete' element={<Delete />} />
         <Route path='/search' element={<Search />} />
         <Route path='/update' element={<Update />} />
-        <Route path='/map'    element={<Crime_Map />} />
+        <Route path='/map'    element={<CrimeMap />} />
         <Route path='/advanced1'    element={<Advanced1 />} />
+        <Route path='/advanced2'    element={<Advanced2 />} />
     </Routes>
     </Router>
   );

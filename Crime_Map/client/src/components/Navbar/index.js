@@ -28,6 +28,9 @@ const Navbar = () => {
           <NavLink to="/advanced1" activeStyle>
             Advanced1
           </NavLink>
+          <NavLink to="/advanced2" activeStyle>
+            Advanced2
+          </NavLink>
         </NavMenu>
       </Nav>
     </>

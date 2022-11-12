@@ -2,7 +2,7 @@ import {useMemo} from "react"
 import {GoogleMap, useLoadScript, Marker} from "@react-google-maps/api"
 import "./page.css"
 
-export default function Crime_Map(){
+export default function CrimeMap(){
 
     const {isLoaded} = useLoadScript({
         googleMapsApiKey: "AIzaSyALsfUA4fSmu_SdOdCJaG3oCv8IlXSthyQ"
