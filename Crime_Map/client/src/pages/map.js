@@ -13,5 +13,5 @@ export default function Crime_Map(){
 }
 
 function Map() {
-    return <GoogleMap zoom={10} center={{lat:44, lng: -80}}  mapContainerClassName="map-container"></GoogleMap>
+    return <GoogleMap zoom={10} center={{lat:40.11, lng: -88.24}}  mapContainerClassName="map-container"></GoogleMap>
 }
