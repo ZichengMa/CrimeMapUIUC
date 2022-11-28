@@ -24,11 +24,11 @@ const db = mysql.createConnection({
 
 app.post('/insert', (req, res) => {
     const name = req.body.name;
-    const passward = req.body.passward;
+    const password = req.body.password;
     const sex = req.body.sex;
 
-    db.query('INSERT INTO User (Name, Sex, Passward) values (?, ?, ?)', 
-    [name, sex, passward], 
+    db.query('INSERT INTO User (Name, Sex, password) values (?, ?, ?)', 
+    [name, sex, password], 
     (err, result) => {
         if (err) {
             console.log(err);
