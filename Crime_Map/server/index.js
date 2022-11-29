@@ -6,11 +6,7 @@ app.use(express.json());
 app.use(cors());
 
 
-
 const fs = require('fs');
-
-
-
 
 
 const db = mysql.createConnection({
@@ -27,7 +23,7 @@ app.post('/insert', (req, res) => {
     const password = req.body.password;
     const sex = req.body.sex;
 
-    db.query('INSERT INTO User (Name, Sex, password) values (?, ?, ?)', 
+    db.query('INSERT INTO User (Name, Sex, passward) values (?, ?, ?)', 
     [name, sex, password], 
     (err, result) => {
         if (err) {
@@ -160,6 +156,22 @@ app.post('/advanced2', (req, res) => {
                     res.send(result);
                 }
             });
+});
+
+app.post("/signin", (req, res) => {
+    const user = req.body.user;
+    const password = req.body.password;
+
+    db.query("SELECT * FROM Crime_Map.User WHERE ID = ? AND Passward = ?", [user, password], 
+        (err, result) => {
+            if(err){
+                console.log(err);
+            }else{
+                res.send(result);
+            }
+        }
+    )
+
 });
 
 
