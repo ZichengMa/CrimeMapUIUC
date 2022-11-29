@@ -39,6 +39,27 @@ app.post('/insert', (req, res) => {
     });
 });
 
+app.get('/user', (req, res) => {
+    db.query("SELECT * FROM User", (err, result) => {
+        if (err) {
+            console.log(err)
+        } else {
+            res.send(result)
+        }
+    })
+})
+
+app.get('/crimemap', (req, res) => {
+    db.query("SELECT * FROM Crime", [], (err, result) => {
+        console.log(result);
+        if (err) {
+            console.log(err)
+        } else {
+            res.send(result)
+        }
+    });
+});
+
 app.post('/delete', (req, res) => {
     const id = req.body.id;
     db.query('DELETE from User where ID = ?', [id],
@@ -168,6 +189,6 @@ app.get("/", (req, res) => {
     res.end('Hello World!');})
 
 app.listen(3001, ()=> {
-    console.log("Yey, your serer is running on port 3306");
+    console.log("Yey, your serer is running on port 3001");
 });
 
