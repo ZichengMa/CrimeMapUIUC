@@ -9,6 +9,7 @@ import Update from './pages/update';
 import Map from './pages/map';
 import Advanced1 from './pages/advanced1';
 import Advanced2 from './pages/advanced2';
+import WeeklyReport from './pages/weeklyreport';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path='/map'    element={<Map />} />
         <Route path='/advanced1'    element={<Advanced1 />} />
         <Route path='/advanced2'    element={<Advanced2 />} />
+        <Route path='/weeklyreport'    element={<WeeklyReport />} />
     </Routes>
     </Router>
   );
