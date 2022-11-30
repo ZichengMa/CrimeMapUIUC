@@ -6,11 +6,7 @@ app.use(express.json());
 app.use(cors());
 
 
-
 const fs = require('fs');
-
-
-
 
 
 const db = mysql.createConnection({
@@ -24,19 +20,20 @@ const db = mysql.createConnection({
 
 app.post('/insert', (req, res) => {
     const name = req.body.name;
-    const passward = req.body.passward;
+    const password = req.body.password;
     const sex = req.body.sex;
 
-    db.query('INSERT INTO User (Name, Sex, Passward) values (?, ?, ?)', 
-    [name, sex, passward], 
+    db.query('INSERT INTO User (Name, Sex, passward) values (?, ?, ?)', 
+    [name, sex, password]);
+
+    db.query('SELECT ID FROM User WHERE Name = ? AND Sex = ? AND passward = ? LIMIT 1',[name, sex, password],
     (err, result) => {
         if (err) {
             console.log(err);
+        } else{
+            res.send(result);
         }
-        else {
-            res.send("Values Inserted");
-        }
-    });
+    })
 });
 
 app.get('/user', (req, res) => {
@@ -163,6 +160,41 @@ app.post('/searchdb', (req, res) => {
 
 });
 
+
+app.post('/streetboard_search', (req, res) => {
+    const streetid = req.body.streetid
+    db.query('SELECT Content FROM StreetBoard WHERE StreetID = ?', 
+    [streetid], 
+    (err, result) => {
+        console.log(result)
+        if (err) {
+            console.log(err);
+        }
+        else {
+            res.send(result);
+        }
+    });
+});
+
+app.post('/streetboard_insert', (req, res) => {
+    const streetid = req.body.streetid
+    const newboardContent = req.body.newboardContent
+    const userID = req.body.userID
+    db.query('Update StreetBoard SET Content = ? WHERE StreetID = ?', [newboardContent,streetid])
+    db.query('SELECT BoardID FROM StreetBoard WHERE StreetID = ?', [streetid],
+    (err, result) => {
+        if (err) {
+            console.log(err);
+        }
+        else {
+            db.query('INSERT INTO Report (UserID, BoardID) values (?, ?)', 
+            [userID, result[0].BoardID])
+            res.send("Update Seccessfully!");
+        }
+    })
+
+});
+
 app.post('/advanced1', (req, res) => {
     const crime_type1 = req.body.crime_type1;
     const crime_type2 = req.body.crime_type2;
@@ -193,6 +225,34 @@ app.post('/advanced2', (req, res) => {
                     GROUP BY Level \
                     ORDER BY Level ) AS levelnum \
         ORDER BY level desc LIMIT 20",[],
+            (err, result) => {
+                if(err){
+                    console.log(err);
+                }else{
+                    res.send(result);
+                }
+            });
+});
+
+
+app.post("/signin", (req, res)  => {
+    const user = req.body.user;
+    const password = req.body.password;
+
+    db.query("SELECT * FROM Crime_Map.User WHERE ID = ? AND Passward = ?", [user, password], 
+        (err, result) => {
+            if(err){
+                console.log(err);
+            }else{
+                res.send(result);
+            }
+        }
+    );
+});
+
+app.post('/weeklyreport', (req, res) => {
+    db.query("CALL UpdateWeeklyReport")
+    db.query("SELECT StartDate, NumCrimes, MostDangerousSt, SafestSt FROM Crime_Map.WeeklyReports",[],
             (err, result) => {
                 if(err){
                     console.log(err);

@@ -13,6 +13,9 @@ const Navbar = () => {
           <NavLink to="/insert" activeStyle>
             Register
           </NavLink>
+          <NavLink to="/signin" activeStyle>
+            Sign In
+          </NavLink>
           <NavLink to="/delete" activeStyle>
             Delete
           </NavLink>
@@ -28,11 +31,17 @@ const Navbar = () => {
           <NavLink to="/map" activeStyle>
             Crime Map
           </NavLink>
+          <NavLink to="/streetboard" activeStyle>
+            StreetBoard
+          </NavLink>
           <NavLink to="/advanced1" activeStyle>
             Advanced1
           </NavLink>
           <NavLink to="/advanced2" activeStyle>
             Advanced2
+          </NavLink>
+          <NavLink to="/weeklyreport" activeStyle>
+            WeeklyReport
           </NavLink>
         </NavMenu>
       </Nav>
