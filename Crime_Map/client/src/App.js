@@ -6,6 +6,7 @@ import Insert from './pages/insert';
 import Delete from './pages/delete';
 import Search from './pages/search';
 import Update from './pages/update';
+import ReportCrime from './pages/ReportCrime';
 import Map from './pages/map';
 import Advanced1 from './pages/advanced1';
 import Advanced2 from './pages/advanced2';
@@ -20,6 +21,7 @@ function App() {
         <Route path='/delete' element={<Delete />} />
         <Route path='/search' element={<Search />} />
         <Route path='/update' element={<Update />} />
+        <Route path='/ReportCrime' element={<ReportCrime />} />
         <Route path='/map'    element={<Map />} />
         <Route path='/advanced1'    element={<Advanced1 />} />
         <Route path='/advanced2'    element={<Advanced2 />} />

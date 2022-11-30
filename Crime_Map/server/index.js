@@ -87,6 +87,25 @@ app.put('/update', (req, res) => {
     })
 })
 
+app.post('/ReportCrime', (req, res) => {
+    const address = req.body.address;
+    const streetid = req.body.streetid;
+    const crime_type = req.body.crime_type;
+    const crimetime = req.body.crimetime;
+    const description = req.body.description
+
+    db.query('INSERT INTO Crime (Address, CrimeType, ByUser, CrimeTime, Description, StreetID) values (?, ?, ?, ?, ?, ?)', 
+    [address, crime_type, 1, crimetime, description, streetid], 
+    (err, result) => {
+        if (err) {
+            console.log(err);
+        }
+        else {
+            res.send("Values Inserted");
+        }
+    });
+});
+
 app.post('/searchdb', (req, res) => {
     const crime_type = req.body.crime_type;
     const streetid = req.body.streetid;
