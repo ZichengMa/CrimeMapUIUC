@@ -1,4 +1,3 @@
-
 import React from "react";
 import './page.css';
 import { useState } from 'react';
@@ -9,6 +8,7 @@ const Insert = () => {
     const [name, setName] = useState("");
     const [sex, setSex] = useState("");
     const [password, setpassword] = useState("");
+    const [prompt, setPrompt] = useState("");
     const Sex_Option = [{value: "male",   label: "male"},
                         {value: "female", label: "female"},
                         {value: "other",  label: "other"}]
@@ -17,8 +17,9 @@ const Insert = () => {
       await Axios.post('http://localhost:3001/insert', {
         name: name, 
         sex: sex.value, 
-        password: password}).then(() => {
+        password: password}).then((response) => {
           setSuccess(true);
+          setPrompt(response.data[0].ID);
         });
     };
     return (
@@ -27,6 +28,8 @@ const Insert = () => {
           <section>
             <h1>Success!</h1>
             <p> 
+              <h2>Here is your UserID for Login</h2>
+              <p>{prompt}</p>
               <a href="/signin">Sign In</a>
             </p>
           </section>

@@ -24,15 +24,16 @@ app.post('/insert', (req, res) => {
     const sex = req.body.sex;
 
     db.query('INSERT INTO User (Name, Sex, passward) values (?, ?, ?)', 
-    [name, sex, password], 
+    [name, sex, password]);
+
+    db.query('SELECT ID FROM User WHERE Name = ? AND Sex = ? AND passward = ? LIMIT 1',[name, sex, password],
     (err, result) => {
         if (err) {
             console.log(err);
+        } else{
+            res.send(result);
         }
-        else {
-            res.send("Values Inserted");
-        }
-    });
+    })
 });
 
 app.post('/delete', (req, res) => {

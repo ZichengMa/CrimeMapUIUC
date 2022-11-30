@@ -1,10 +1,11 @@
-
 import React from "react";
 import './page.css';
-import { useState} from 'react';
+import { useState, useContext } from 'react';
 import Axios from 'axios'
+import { LoginContext } from "../context/LoginContext";
 
 const Signin = () => {
+  const {setUserLogin} = useContext(LoginContext);
   const [user, setUser] = useState();
   const [password, setPassword] = useState("");
   const [success, setSuccess] = useState(false);
@@ -16,13 +17,12 @@ const Signin = () => {
         user: user, 
         password: password}).then((response) => {
           if(response.data.length !== 0){
-            //setAuth(user, password);
             setSuccess(true);
+            setUserLogin(user);
           }else{
             setSuccess(false);
-            console.log("Login in failed, please try again");
+            alert("Login in failed, please try again");
           }
-          //console.log(response.data);
       });
     };
   
