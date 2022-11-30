@@ -183,6 +183,18 @@ app.post('/advanced2', (req, res) => {
             });
 });
 
+app.post('/weeklyreport', (req, res) => {
+    db.query("CALL UpdateWeeklyReport")
+    db.query("SELECT StartDate, NumCrimes, MostDangerousSt, SafestSt FROM Crime_Map.WeeklyReports",[],
+            (err, result) => {
+                if(err){
+                    console.log(err);
+                }else{
+                    res.send(result);
+                }
+            });
+});
+
 
 app.get("/", (req, res) => {
     res.writeHead(200, {'Content-Type': 'text/html'});

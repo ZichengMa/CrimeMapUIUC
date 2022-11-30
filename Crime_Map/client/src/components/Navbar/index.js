@@ -31,6 +31,9 @@ const Navbar = () => {
           <NavLink to="/advanced2" activeStyle>
             Advanced2
           </NavLink>
+          <NavLink to="/weeklyreport" activeStyle>
+            WeeklyReport
+          </NavLink>
         </NavMenu>
       </Nav>
     </>
