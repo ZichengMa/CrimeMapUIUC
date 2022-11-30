@@ -13,6 +13,9 @@ const Navbar = () => {
           <NavLink to="/insert" activeStyle>
             Insert
           </NavLink>
+          <NavLink to="/signin" activeStyle>
+            Sign In
+          </NavLink>
           <NavLink to="/delete" activeStyle>
             Delete
           </NavLink>

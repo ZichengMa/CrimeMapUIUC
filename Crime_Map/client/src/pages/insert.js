@@ -1,4 +1,3 @@
-
 import React from "react";
 import './page.css';
 import { useState } from 'react';
@@ -8,19 +7,33 @@ import Select from 'react-select'
 const Insert = () => {
     const [name, setName] = useState("");
     const [sex, setSex] = useState("");
-    const [passward, setPassward] = useState("");
+    const [password, setpassword] = useState("");
+    const [prompt, setPrompt] = useState("");
     const Sex_Option = [{value: "male",   label: "male"},
                         {value: "female", label: "female"},
                         {value: "other",  label: "other"}]
+    const [success, setSuccess] = useState(false);
     const adduser = async () =>{
       await Axios.post('http://localhost:3001/insert', {
         name: name, 
         sex: sex.value, 
-        passward: passward}).then(() => {
-          alert("You have successfully signed up!");
+        password: password}).then((response) => {
+          setSuccess(true);
+          setPrompt(response.data[0].ID);
         });
     };
     return (
+      <>
+        {success ? (
+          <section>
+            <h1>Success!</h1>
+            <p> 
+              <h2>Here is your UserID for Login</h2>
+              <p>{prompt}</p>
+              <a href="/signin">Sign In</a>
+            </p>
+          </section>
+        ) : (
         <div className="App">
         <div className = "information">
             <label>Name:</label>
@@ -33,14 +46,16 @@ const Insert = () => {
               <Select options={Sex_Option}
                       onChange={setSex}/>
             </div>
-            <label>Passward:</label>
+            <label>password:</label>
             <input type = "text" 
             onChange={(event) => {
-            setPassward(event.target.value);
+            setpassword(event.target.value);
             }}/> 
             <button onClick = {adduser}>Sign Up!</button>
         </div>
         </div>
+      ) }
+      </>
   );
 };
   

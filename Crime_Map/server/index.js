@@ -6,11 +6,7 @@ app.use(express.json());
 app.use(cors());
 
 
-
 const fs = require('fs');
-
-
-
 
 
 const db = mysql.createConnection({
@@ -24,19 +20,20 @@ const db = mysql.createConnection({
 
 app.post('/insert', (req, res) => {
     const name = req.body.name;
-    const passward = req.body.passward;
+    const password = req.body.password;
     const sex = req.body.sex;
 
-    db.query('INSERT INTO User (Name, Sex, Passward) values (?, ?, ?)', 
-    [name, sex, passward], 
+    db.query('INSERT INTO User (Name, Sex, passward) values (?, ?, ?)', 
+    [name, sex, password]);
+
+    db.query('SELECT ID FROM User WHERE Name = ? AND Sex = ? AND passward = ? LIMIT 1',[name, sex, password],
     (err, result) => {
         if (err) {
             console.log(err);
+        } else{
+            res.send(result);
         }
-        else {
-            res.send("Values Inserted");
-        }
-    });
+    })
 });
 
 app.get('/user', (req, res) => {
@@ -183,6 +180,21 @@ app.post('/advanced2', (req, res) => {
             });
 });
 
+
+app.post("/signin", (req, res) => {
+    const user = req.body.user;
+    const password = req.body.password;
+
+    db.query("SELECT * FROM Crime_Map.User WHERE ID = ? AND Passward = ?", [user, password], 
+        (err, result) => {
+            if(err){
+                console.log(err);
+            }else{
+                res.send(result);
+            }
+        }
+    )
+   
 app.post('/weeklyreport', (req, res) => {
     db.query("CALL UpdateWeeklyReport")
     db.query("SELECT StartDate, NumCrimes, MostDangerousSt, SafestSt FROM Crime_Map.WeeklyReports",[],
