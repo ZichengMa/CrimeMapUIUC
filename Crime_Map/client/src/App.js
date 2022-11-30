@@ -27,10 +27,11 @@ function App() {
             <Route path='/delete' element={<Delete />} />
             <Route path='/search' element={<Search />} />
             <Route path='/update' element={<Update />} />
-            <Route path='/map'    element={<CrimeMap />} />
+            <Route path='/streetboard' element={<StreetBoard />} />
+            <Route path='/map'    element={<Map />} />
             <Route path='/advanced1'    element={<Advanced1 />} />
             <Route path='/advanced2'    element={<Advanced2 />} />
-          
+            <Route path='/weeklyreport'    element={<WeeklyReport />} />
         </Routes>
       </Router>
     </LoginContext.Provider>
