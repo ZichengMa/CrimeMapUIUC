@@ -36,6 +36,8 @@ npm install date-fns
 
 npm install react-select
 
+npm install --save react-geocode
+
 ### Server Folder
 npm install fs
 

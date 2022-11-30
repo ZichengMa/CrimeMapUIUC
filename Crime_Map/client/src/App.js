@@ -8,10 +8,11 @@ import Signin from './pages/signin';
 import Delete from './pages/delete';
 import Search from './pages/search';
 import Update from './pages/update';
-import CrimeMap from './pages/map';
+import Map from './pages/map';
 import Advanced1 from './pages/advanced1';
 import Advanced2 from './pages/advanced2';
 import { LoginContext } from './context/LoginContext';
+import WeeklyReport from './pages/weeklyreport';
 
 function App() {
   const [userLogin, setUserLogin] = useState();
