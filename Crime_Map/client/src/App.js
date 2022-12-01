@@ -14,6 +14,7 @@ import Advanced1 from './pages/advanced1';
 import Advanced2 from './pages/advanced2';
 import { LoginContext } from './context/LoginContext';
 import WeeklyReport from './pages/weeklyreport';
+import StreetBoard from './pages/streetboard';
 
 function App() {
   const [userLogin, setUserLogin] = useState();
