@@ -10,20 +10,20 @@ const Navbar = () => {
           <NavLink to="/" activeStyle>
             Home
           </NavLink>
-          <NavLink to="/insert" activeStyle>
+          {/* <NavLink to="/insert" activeStyle>
             Register
-          </NavLink>
+          </NavLink> */}
           <NavLink to="/signin" activeStyle>
-            Sign In
+            SignIn
           </NavLink>
-          <NavLink to="/delete" activeStyle>
-            Delete
-          </NavLink>
+          {/* <NavLink to="/delete" activeStyle>
+            Delete User
+          </NavLink> */}
           <NavLink to="/search" activeStyle>
             Search
           </NavLink>
           <NavLink to="/update" activeStyle>
-            Update
+            Update Crime Description
           </NavLink>
           <NavLink to="/ReportCrime" activeStyle>
             Report Crime
@@ -34,12 +34,12 @@ const Navbar = () => {
           <NavLink to="/streetboard" activeStyle>
             StreetBoard
           </NavLink>
-          <NavLink to="/advanced1" activeStyle>
-            Advanced1
+          {/* <NavLink to="/advanced1" activeStyle>
+            Check two streets' crimes
           </NavLink>
           <NavLink to="/advanced2" activeStyle>
-            Advanced2
-          </NavLink>
+            Check most dangerous streets
+          </NavLink> */}
           <NavLink to="/weeklyreport" activeStyle>
             WeeklyReport
           </NavLink>

@@ -1,9 +1,9 @@
 import React from "react";
 import './page.css';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import Axios from 'axios'
 import Select from 'react-select'
-
+import { LoginContext } from "../context/LoginContext";
 function CombineDateAndTime(date, time) {
     // var timeString = time.getHours() + ':' + time.getMinutes() + ':00';
 
@@ -16,6 +16,7 @@ function CombineDateAndTime(date, time) {
 };
 
 const ReportCrime = () => {
+    const {userLogin} = useContext(LoginContext);
     const [address, setAddress] = useState("");
     const [crime_type, setCrime] = useState("");
     const [streetid, setStreetID] = useState(10288);
@@ -40,14 +41,20 @@ const ReportCrime = () => {
                         {value: "Battery",  label: "Battery"},
                         {value: "Felony",  label: "other"}]
     const addcrime = async () =>{
-      await Axios.post('http://localhost:3001/ReportCrime', {
-        address: address, 
-        streetid: streetid.value,
-        crimetime: CombineDateAndTime(date, time),
-        crime_type: crime_type.value, 
-        description: description}).then(() => {
-          alert("You have successfully report crime!");
-        });
+      console.log(userLogin)
+      if(userLogin==null){
+        alert("Please Login in first!");
+      }else{
+          await Axios.post('http://localhost:3001/ReportCrime', {
+          address: address, 
+          streetid: streetid.value,
+          crimetime: CombineDateAndTime(date, time),
+          crime_type: crime_type.value, 
+          userID: userLogin,
+          description: description}).then(() => {
+            alert("You have successfully report crime!");
+          });
+      }
     };
     return (
         <div className="App">
@@ -98,7 +105,6 @@ const ReportCrime = () => {
 export default ReportCrime;
 
 const street_options = [
-    {value: 0, label: 'All streets'},
     {value: 10634, label: '311 South Prairie driveway'},
     {value: 11378, label: 'A Street'},
     {value: 10923, label: 'Aberdeen Drive'},
