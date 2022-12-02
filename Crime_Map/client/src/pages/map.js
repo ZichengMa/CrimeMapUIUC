@@ -3,6 +3,7 @@ import {useNavigate} from 'react-router-dom';
 import Axios from "axios"
 import './map.css';
 import Geocode from "react-geocode"
+import mapStyle from "./mapStyle";
 import { GoogleMap, InfoWindow, Marker, useLoadScript } from "@react-google-maps/api";
 import Assaut from "./image/Assaut.png"
 import Battery from "./image/Battery.png"
@@ -152,6 +153,7 @@ function Map() {
             zoom={15} 
             center={{lat:40.10997, lng: -88.22709}}  
             mapContainerClassName="map-container"
+            options={{styles:mapStyle,}}
         >
         {markers.map(({ id, name, position, myicon }) => (
             <Marker
