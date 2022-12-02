@@ -48,7 +48,6 @@ app.get('/user', (req, res) => {
 
 app.get('/crimemap', (req, res) => {
     db.query("SELECT * FROM Crime", [], (err, result) => {
-        console.log(result);
         if (err) {
             console.log(err)
         } else {
@@ -74,8 +73,6 @@ app.put('/update', (req, res) => {
     const id = req.body.id;
     const description = req.body.description;
     const userID = req.body.userID;
-    console.log(userID)
-    console.log(id)
     const match = db.query('Select UserID FROM Report WHERE CrimeID = ? AND UserID = ?',[id, userID],
     (err, result) =>{
         if(result.length == 0){
@@ -193,7 +190,6 @@ app.post('/streetboard_search', (req, res) => {
     db.query('SELECT Content FROM StreetBoard WHERE StreetID = ?', 
     [streetid], 
     (err, result) => {
-        console.log(result)
         if (err) {
             console.log(err);
         }
@@ -214,8 +210,14 @@ app.post('/streetboard_insert', (req, res) => {
             console.log(err);
         }
         else {
-            db.query('INSE·T INTO Post (UserID, BoardID) values (?, ?)', 
-            [userID, result[0].BoardID])
+            const boardID= result[0].BoardID
+            db.query('SELECT * FROM Post WHERE UserID = ? AND BoardID = ?',[userID, boardID],
+            (err, result)=>{
+                if(result.length==0){
+                    db.query('INSERT INTO Post (UserID, BoardID) values (?, ?)', 
+                    [userID, boardID])
+                }
+            })
             res.send("Update Seccessfully!");
         }
     })
