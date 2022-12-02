@@ -48,7 +48,6 @@ app.get('/user', (req, res) => {
 
 app.get('/crimemap', (req, res) => {
     db.query("SELECT * FROM Crime", [], (err, result) => {
-        console.log(result);
         if (err) {
             console.log(err)
         } else {
@@ -73,16 +72,39 @@ app.post('/delete', (req, res) => {
 app.put('/update', (req, res) => {
     const id = req.body.id;
     const description = req.body.description;
-    db.query('Update Crime SET Description = ? WHERE CrimeID = ?', [description,id],
+    const userID = req.body.userID;
+    const match = db.query('Select UserID FROM Report WHERE CrimeID = ? AND UserID = ?',[id, userID],
+    (err, result) =>{
+        if(result.length == 0){
+            res.send('0')
+        }else{
+            db.query('Update Crime SET Description = ? WHERE CrimeID = ?', [description,id],
+            (err, result) => {
+                if (err) {
+                    console.log(err);
+                }
+                else {
+                    res.send("Update Seccessfully!");
+                }
+            })
+        }
+    })
+})
+
+app.put('/update_checkcrime', (req, res) => {
+    const userID = req.body.userID
+    db.query('Select CrimeID FROM Report WHERE UserID = ?', [userID],
     (err, result) => {
         if (err) {
             console.log(err);
         }
         else {
-            res.send("Update Seccessfully!");
+            res.send(result);
         }
     })
 })
+
+
 
 app.post('/ReportCrime', (req, res) => {
     const address = req.body.address;
@@ -90,7 +112,8 @@ app.post('/ReportCrime', (req, res) => {
     const crime_type = req.body.crime_type;
     const crimetime = req.body.crimetime;
     const description = req.body.description
-
+    const userID = req.body.userID
+    
     db.query('INSERT INTO Crime (Address, CrimeType, ByUser, CrimeTime, Description, StreetID) values (?, ?, ?, ?, ?, ?)', 
     [address, crime_type, 1, crimetime, description, streetid], 
     (err, result) => {
@@ -98,6 +121,7 @@ app.post('/ReportCrime', (req, res) => {
             console.log(err);
         }
         else {
+            db.query('INSERT INTO Report (UserID, CrimeID) VALUES (?, ?)',[userID, result.insertId])
             res.send("Values Inserted");
         }
     });
@@ -107,7 +131,7 @@ app.post('/searchdb', (req, res) => {
     const crime_type = req.body.crime_type;
     const streetid = req.body.streetid;
     const fromdate = req.body.fromdate;
-    const todate = req.body.todate;
+    const todate = req.body.todate; 
     if(crime_type == 'All' && streetid != 0){
         db.query("SELECT Address, CrimeType, date_format(CrimeTime,'%Y-%m-%d %H:%i:%s') as CrimeTime, Description \
                 FROM Crime\
@@ -166,7 +190,6 @@ app.post('/streetboard_search', (req, res) => {
     db.query('SELECT Content FROM StreetBoard WHERE StreetID = ?', 
     [streetid], 
     (err, result) => {
-        console.log(result)
         if (err) {
             console.log(err);
         }
@@ -187,8 +210,14 @@ app.post('/streetboard_insert', (req, res) => {
             console.log(err);
         }
         else {
-            db.query('INSERT INTO Report (UserID, BoardID) values (?, ?)', 
-            [userID, result[0].BoardID])
+            const boardID= result[0].BoardID
+            db.query('SELECT * FROM Post WHERE UserID = ? AND BoardID = ?',[userID, boardID],
+            (err, result)=>{
+                if(result.length==0){
+                    db.query('INSERT INTO Post (UserID, BoardID) values (?, ?)', 
+                    [userID, boardID])
+                }
+            })
             res.send("Update Seccessfully!");
         }
     })
