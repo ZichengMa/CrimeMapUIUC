@@ -57,6 +57,11 @@ const Signin = () => {
             <span>
               <a href="/insert">Sign Up</a>
             </span>
+            <br /> <br />
+            Want to delete your Account? <br />
+            <span>
+              <a href="/delete">Delete</a>
+            </span>
           </p>
         </div>
       </div>
