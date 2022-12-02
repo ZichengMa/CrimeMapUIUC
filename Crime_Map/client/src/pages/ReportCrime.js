@@ -41,6 +41,7 @@ const ReportCrime = () => {
                         {value: "Battery",  label: "Battery"},
                         {value: "Felony",  label: "other"}]
     const addcrime = async () =>{
+      console.log(userLogin)
       if(userLogin==null){
         alert("Please Login in first!");
       }else{
@@ -104,7 +105,6 @@ const ReportCrime = () => {
 export default ReportCrime;
 
 const street_options = [
-    {value: 0, label: 'All streets'},
     {value: 10634, label: '311 South Prairie driveway'},
     {value: 11378, label: 'A Street'},
     {value: 10923, label: 'Aberdeen Drive'},
