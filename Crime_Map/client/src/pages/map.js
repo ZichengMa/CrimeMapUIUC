@@ -1,9 +1,23 @@
 import React, { useState, useEffect } from "react";
+import {useNavigate} from 'react-router-dom';
 import Axios from "axios"
+import './map.css';
 import Geocode from "react-geocode"
 import { GoogleMap, InfoWindow, Marker, useLoadScript } from "@react-google-maps/api";
 
 function Map() {
+  const navigate = useNavigate();
+
+  const navigateToAdvanced1 = () => {
+    // 👇️ navigate to /contacts
+    navigate('/advanced1');
+  };
+
+  const navigateToAdvanced2 = () => {
+    // 👇️ navigate to /contacts
+    navigate('/advanced2');
+  };
+
     const [CrimeList, setCrimeList] = useState([])
     const [ActiveMarker, setActiveMarker] = useState(null);
     const [markers, setMarkers] = useState([
@@ -84,25 +98,39 @@ function Map() {
 
   return (isLoaded && (
         <>
-        <GoogleMap
-            zoom={15} 
-            center={{lat:40.10997, lng: -88.22709}}  
-            mapContainerClassName="map-container"
-        >
-        {markers.map(({ id, name, position }) => (
-            <Marker
-            key={id}
-            position={position}
-            onClick={() => handleActiveMarker(id)}
-            >
-            {ActiveMarker === id ? (
-                <InfoWindow onCloseClick={() => setActiveMarker(null)}>
-                <div>{name}</div>
-                </InfoWindow>
-            ) : null}
-            </Marker>
-        ))}
-        </GoogleMap>
+        <div className="container">
+          <button 
+            className="overlay1"
+            onClick={navigateToAdvanced1}
+          >
+            Checkout all the Crimes on Two Streets
+          </button>
+          <button 
+            className="overlay2"
+            onClick={navigateToAdvanced2}
+          >
+            Discover the Most Dangerous Streets
+          </button>
+          <GoogleMap className="box"
+              zoom={15} 
+              center={{lat:40.10997, lng: -88.22709}}  
+              mapContainerClassName="map-container"
+          >
+          {markers.map(({ id, name, position }) => (
+              <Marker
+              key={id}
+              position={position}
+              onClick={() => handleActiveMarker(id)}
+              >
+              {ActiveMarker === id ? (
+                  <InfoWindow onCloseClick={() => setActiveMarker(null)}>
+                  <div>{name}</div>
+                  </InfoWindow>
+              ) : null}
+              </Marker>
+          ))}
+          </GoogleMap>
+        </div>
         </>
     ));
 }
