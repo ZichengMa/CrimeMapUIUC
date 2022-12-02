@@ -252,7 +252,7 @@ app.post("/signin", (req, res)  => {
 
 app.post('/weeklyreport', (req, res) => {
     db.query("CALL UpdateWeeklyReport")
-    db.query("SELECT StartDate, NumCrimes, MostDangerousSt, SafestSt FROM Crime_Map.WeeklyReports",[],
+    db.query("SELECT * FROM Crime_Map.WeeklyReports",[],
             (err, result) => {
                 if(err){
                     console.log(err);

@@ -30,7 +30,9 @@ function WeeklyReport() {
             <h3>Start Date: {val.StartDate}</h3> 
             <h3>Number of Crimes: {val.NumCrimes}</h3>
             <h3>Most Dangerous Street: {val.MostDangerousSt}</h3> 
+            <h3>Most Dangerous StreetID: {val.MostDangerousStID}</h3> 
             <h3>Safest Street: {val.SafestSt}</h3> 
+            <h3>Safest StreetID: {val.SafestStID}</h3>
           </div>
           );
         })}
