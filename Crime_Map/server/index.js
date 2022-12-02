@@ -47,7 +47,7 @@ app.get('/user', (req, res) => {
 })
 
 app.get('/crimemap', (req, res) => {
-    db.query("SELECT * FROM Crime", [], (err, result) => {
+    db.query("SELECT * FROM Crime LIMIT 30", [], (err, result) => {
         console.log(result);
         if (err) {
             console.log(err)
