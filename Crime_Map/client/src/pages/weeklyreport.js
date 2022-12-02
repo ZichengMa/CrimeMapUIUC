@@ -1,4 +1,4 @@
-import './search.css';
+import './page.css';
 import { useState } from 'react';
 import Axios from 'axios';
 
@@ -20,7 +20,7 @@ function WeeklyReport() {
   };
 
   return (
-    <div className="App">
+    <div className="Report">
       <p> This is the weekly report of our crime map. </p>
         <button onClick={search}>SHOW</button>
         <div>{searchResult}</div>
