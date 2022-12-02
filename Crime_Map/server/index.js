@@ -187,7 +187,7 @@ app.post('/streetboard_insert', (req, res) => {
             console.log(err);
         }
         else {
-            db.query('INSERT INTO Report (UserID, BoardID) values (?, ?)', 
+            db.query('INSE·T INTO Post (UserID, BoardID) values (?, ?)', 
             [userID, result[0].BoardID])
             res.send("Update Seccessfully!");
         }

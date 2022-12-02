@@ -14,16 +14,16 @@ const Navbar = () => {
             Register
           </NavLink>
           <NavLink to="/signin" activeStyle>
-            Sign In
+            SignIn
           </NavLink>
           <NavLink to="/delete" activeStyle>
-            Delete
+            Delete User
           </NavLink>
           <NavLink to="/search" activeStyle>
             Search
           </NavLink>
           <NavLink to="/update" activeStyle>
-            Update
+            Update Crime Description
           </NavLink>
           <NavLink to="/ReportCrime" activeStyle>
             Report Crime
@@ -35,10 +35,10 @@ const Navbar = () => {
             StreetBoard
           </NavLink>
           <NavLink to="/advanced1" activeStyle>
-            Advanced1
+            Check two streets' crimes
           </NavLink>
           <NavLink to="/advanced2" activeStyle>
-            Advanced2
+            Check most dangerous streets
           </NavLink>
           <NavLink to="/weeklyreport" activeStyle>
             WeeklyReport
