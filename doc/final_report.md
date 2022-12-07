@@ -97,7 +97,8 @@ The major parts of our labor division are listed below:
     * CSS design
     * Designing table relations
     * Analyzing query performance
-    * Writing select query for database
+    * Writing search query for database
+    * Embedding DateTime select and drop select UI
     * Drawing UML graph
 4. Elijah Ye:
     * Writing update and delete queries for database
