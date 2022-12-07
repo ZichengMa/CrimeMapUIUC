@@ -83,7 +83,7 @@ The major parts of our labor division are listed below:
     * Writing advanced queries for the database
     * Adding update supports to the database with stored procedures
     * Adding labels to crime data
-    * Analyzing query profermance
+    * Analyzing query performance
     * Setting up GCP SQL server
     * CSS design
     * Designing table relations
@@ -92,7 +92,14 @@ The major parts of our labor division are listed below:
     * Setting up website
     * CSS design
     * Designing table relations
+    * Analyzing query performance
+    * Writing select query for database
+    * Drawing UML graph
 4. Elijah Ye:
+    * Writing update and delete queries for database
+    * Enabling sign in features of website
+    * Demo video recording
+    * Setting up website
     * CSS design
     * Designing table relations
 
