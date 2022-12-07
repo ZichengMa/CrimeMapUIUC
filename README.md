@@ -24,6 +24,17 @@ Our data will be the records of crime within UIUC campus and surrounding areas s
 
 ​    Our program aims to build a map for students and faculties in UIUC to check crimes around and on campus. Our project will help people avoid meeting crime and have a safer campus life. This is useful especially for those who like going home late at night.
 
+## File Distribution
+
+1. doc
+    * Proposal
+    * URL design
+    * Database design
+    * Final Report
+2. Crime_Map
+    * client: Code of client
+    * server: Code of server
+
 
 ## Code Contribution
 1. Zhirong Chen:
@@ -53,7 +64,7 @@ Our data will be the records of crime within UIUC campus and surrounding areas s
 
 ## Environment
 
-### Client Folder
+### Crime_Map/client Folder
     npx create-react-app
     npm install react-router-dom 
     npm install --save styled-components
@@ -65,7 +76,7 @@ Our data will be the records of crime within UIUC campus and surrounding areas s
     npm install react-select
     npm install --save react-geocode
 
-### Server Folder
+### Crime_Map/server Folder
     npm install fs
 
 ## demo
