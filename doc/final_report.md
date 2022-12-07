@@ -94,3 +94,8 @@ The major parts of our label division are listed below:
 4. Elijah Ye:
     * CSS design
     * Designing table relations
+
+## Video
+```
+https://youtu.be/-z2Pg80oAbs
+```
