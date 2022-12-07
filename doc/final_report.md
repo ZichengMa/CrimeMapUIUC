@@ -83,6 +83,7 @@ The major parts of our labor division are listed below:
     * Writing advanced queries for the database
     * Adding update supports to the database with stored procedures
     * Adding labels to crime data
+    * Analyzing query profermance
     * Setting up GCP SQL server
     * CSS design
     * Designing table relations
