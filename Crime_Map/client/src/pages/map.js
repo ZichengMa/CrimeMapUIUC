@@ -98,7 +98,7 @@ function Map() {
     console.log(CrimeList.length)
 
     const { isLoaded } = useLoadScript({
-        googleMapsApiKey: "AIzaSyALsfUA4fSmu_SdOdCJaG3oCv8IlXSthyQ" // Add your API key
+        googleMapsApiKey: "YOUR_API_KEY" // Add your API key
       });
 
     const handleActiveMarker = (marker) => {
@@ -107,7 +107,7 @@ function Map() {
         }
         setActiveMarker(marker);
     };
-    Geocode.setApiKey("AIzaSyALsfUA4fSmu_SdOdCJaG3oCv8IlXSthyQ") 
+    Geocode.setApiKey("YOUR_API_KEY") 
     const Getcoordinate = async () => {
       var i
       for (i = 0; i < CrimeList.length; i++){
