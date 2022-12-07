@@ -54,6 +54,8 @@ Zicheng Ma: The most challenging part for me is cleaning original data. Original
 
 Elijah Ye: The most challenging part for me is having to implement an user login system. Jumping into the React world without whitch hook/function to use. Watched at least 3 tutorials video and finally discover the right hook to use. It was not easy to not systemly learn something before you do anything. I am really thankful for the existence of YouTube. It helps me big time.
 
+Erkai Yu: The most challenging part for me is to design a stored procedure that can update each week's weekly report and the streets' safety trend. It envolves datetime calculation, I made use of a iteration loop with datetime as iteration step to update the weekly reports(including earlier weeks since there might be changes on the status of the crimes) and integrated it inside the stored procedure to make it work properly. 
+
 ## Other things that changed in Final Application Compared with Original Proposal
 1. Instead of giving a safety level based on time slots of a day, we made the safety level be updated according to frequency in each single week.
 2. We didn't add the feature to automatically detect and delete redundant reports for a single crime, since it involves NLP which takes too much time to implement.
