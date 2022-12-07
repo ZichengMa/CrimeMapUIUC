@@ -52,6 +52,8 @@ Reason:
 
 Zicheng Ma: The most challenging part for me is cleaning original data. Original data is very messy and the attributes' content have various format. For example, the address of the crime happened may be Green St or Green Street but actually they are the same. Besides, sometimes there will be garbage value such as "DON'T KNOW" or "NONE". Cleaning data cost me a lot of time and effort which helped me learn a lot while killing me. :(
 
+Elijah Ye: The most challenging part for me is having to implement an user login system. Jumping into the React world without whitch hook/function to use. Watched at least 3 tutorials video and finally discover the right hook to use. It was not easy to not systemly learn something before you do anything. I am really thankful for the existence of YouTube. It helps me big time.
+
 ## Other things that changed in Final Application Compared with Original Proposal
 1. Instead of giving a safety level based on time slots of a day, we made the safety level be updated according to frequency in each single week.
 2. We didn't add the feature to automatically detect and delete redundant reports for a single crime, since it involves NLP which takes too much time to implement.
