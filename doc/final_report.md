@@ -65,11 +65,11 @@ Most of our website's crime data is loaded manually from crime statistics provid
 
 Given that the virtual machine we built on google cloud platform was incapable of acting as a website server, we hold our website locally for the demos, but we can run it online if a server is provided.
 
-## Final division of label and teamwork
+## Final division of labor and teamwork
 
 Overall we distributed our teamwork in a equalized way, each of the team member will gets his own task for each stage, and we combine our work together in the end of each stage.
 
-The major parts of our label division are listed below:
+The major parts of our labor division are listed below:
 
 1. Zhirong Chen:
     * Embedding Google Map UI
