@@ -28,6 +28,9 @@ Our data will be the records of crime within UIUC campus and surrounding areas s
 ## Code Contribution
 1. Zhirong Chen:
     * Embedding Google Map UI
+    * Design different icons for different crime types
+    * Implement the register system
+    * Implement the navbar and paging for the website
     * Writing triggers for the database
     * Setting up tables in the database
     * Generalizing user infomation for tables
@@ -38,7 +41,7 @@ Our data will be the records of crime within UIUC campus and surrounding areas s
     * Writing advanced queries for the database
     * Adding update supports to the database with stored procedures
     * Adding labels to crime data
-    * Analyzing query profermance
+    * Analyzing query performance
     * Setting up GCP SQL server
     * CSS design
     * Designing table relations
@@ -47,7 +50,15 @@ Our data will be the records of crime within UIUC campus and surrounding areas s
     * Setting up website
     * CSS design
     * Designing table relations
+    * Analyzing query performance
+    * Writing search query for database
+    * Embedding DateTime select and drop select UI
+    * Drawing UML graph
 4. Elijah Ye:
+    * Writing update and delete queries for database
+    * Enabling sign in features of website
+    * Demo video recording
+    * Setting up website
     * CSS design
     * Designing table relations
 

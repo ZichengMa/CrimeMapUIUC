@@ -50,11 +50,13 @@ Reason:
 
 ## Technical Challenge
 
+Zhirong Chen: The most challenging part for me is using using different api in our map, especially using api inside a loop because the asynchronous execution of javascript. Besides, reading the api documents and learning to use it is also a little difficult.
+
 Zicheng Ma: The most challenging part for me is cleaning original data. Original data is very messy and the attributes' content have various format. For example, the address of the crime happened may be Green St or Green Street but actually they are the same. Besides, sometimes there will be garbage value such as "DON'T KNOW" or "NONE". Cleaning data cost me a lot of time and effort which helped me learn a lot while killing me. :(
 
 Elijah Ye: The most challenging part for me is having to implement an user login system. Jumping into the React world without whitch hook/function to use. Watched at least 3 tutorials video and finally discover the right hook to use. It was not easy to not systemly learn something before you do anything. I am really thankful for the existence of YouTube. It helps me big time.
 
-Erkai Yu: The most challenging part for me is to design a stored procedure that can update each week's weekly report and the streets' safety trend. It envolves datetime calculation, I made use of a iteration loop with datetime as iteration step to update the weekly reports(including earlier weeks since there might be changes on the status of the crimes) and integrated it inside the stored procedure to make it work properly. 
+Erkai Yu: The most challenging part for me is to design a stored procedure that can update each week's weekly report and the streets' safety trend. It envolves datetime calculation, I made use of a iteration loop with datetime as iteration step to update the weekly reports(including earlier weeks since there might be changes on the status of the crimes) and integrated it inside the stored procedure to make it work properly.
 
 ## Other things that changed in Final Application Compared with Original Proposal
 1. Instead of giving a safety level based on time slots of a day, we made the safety level be updated according to frequency in each single week.
@@ -81,6 +83,9 @@ The major parts of our labor division are listed below:
 
 1. Zhirong Chen:
     * Embedding Google Map UI
+    * Design different icons for different crime types
+    * Implement the register system
+    * Implement the navbar and paging for the website
     * Writing triggers for the database
     * Setting up tables in the database
     * Generalizing user infomation for tables
