@@ -90,6 +90,24 @@ Our data will be the records of crime within UIUC campus and surrounding areas s
 ### Crime_Map/server Folder
     npm install fs
 
+## How to run
+
+0. Set up the environment as above
+
+1. Use your own google map api in Crime_Map/client/map.js. You need to use the api key for both geocode and google map.
+
+2. Set up the database exactly the same as DatabaseDesign.md in google cloud SQL maching.
+
+3. Connect the database in Crime_Map/server/index.js
+
+4. In Crime_Map/client/ run
+
+    npm start
+
+5. In Crime_Map/server/ run
+
+    node index.js
+
 ## demo
 https://youtu.be/-z2Pg80oAbs
 
