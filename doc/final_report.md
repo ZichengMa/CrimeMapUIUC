@@ -47,3 +47,8 @@ Reason:
 1. We design a trigger in the Crime, making it possible once a crime data inserted in the table the database program can automatically change the crime frequency, and crime number of a street.
 2. We design a stored procedure to update the Crime trend in a street.
 3. We also have some advanced queries to discover the top 20 most dangerous streets in UIUC.
+
+## Video
+```
+https://youtu.be/-z2Pg80oAbs
+```
