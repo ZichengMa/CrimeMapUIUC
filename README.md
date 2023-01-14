@@ -1,9 +1,9 @@
 # Crime Map
 
 ## Contributor
-[Zhirong Chen](https://github.com/rong-hash)
+[Zicheng Ma](https://zichengma.github.io)
 
-[Zicheng Ma](https://github.com/ZichengMa)
+[Zhirong Chen](https://github.com/rong-hash)
 
 [Elijah Ye](https://github.com/Elijah-Ye)
 
@@ -37,7 +37,16 @@ Our data will be the records of crime within UIUC campus and surrounding areas s
 
 
 ## Code Contribution
-1. Zhirong Chen:
+1. Zicheng Ma:
+    * Loading and cleaning crime data to fit database design, with Python
+    * Setting up website
+    * CSS design
+    * Designing table relations
+    * Analyzing query performance
+    * Writing search query for database
+    * Embedding DateTime select and drop select UI
+    * Drawing UML graph
+2. Zhirong Chen:
     * Embedding Google Map UI
     * Design different icons for different crime types
     * Implement the register system
@@ -48,23 +57,14 @@ Our data will be the records of crime within UIUC campus and surrounding areas s
     * Setting up the client and server side of our website
     * CSS design
     * Designing table relations
-2. Erkai Yu:
+3. Erkai Yu:
     * Writing advanced queries for the database
     * Adding update supports to the database with stored procedures
     * Adding labels to crime data
     * Analyzing query performance
     * Setting up GCP SQL server
     * CSS design
-    * Designing table relations
-3. Zicheng Ma:
-    * Loading and cleaning crime data to fit database design, with Python
-    * Setting up website
-    * CSS design
-    * Designing table relations
-    * Analyzing query performance
-    * Writing search query for database
-    * Embedding DateTime select and drop select UI
-    * Drawing UML graph
+    * Designing table relations 
 4. Elijah Ye:
     * Writing update and delete queries for database
     * Enabling sign in features of website
